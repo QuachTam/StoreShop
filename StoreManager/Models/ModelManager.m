@@ -18,11 +18,20 @@
         modelType.text = @"Loại mặt hàng";
         modelType.type = ModelTextField;
         modelType.modelTextFieldType = ModelTextFieldType;
+        modelType.keyBoardType = UIKeyboardTypeDefault;
         [array addObject:modelType];
+        
+        TextFieldModel *modelNumber = [[TextFieldModel alloc] init];
+        modelNumber.text = @"Số lượng";
+        modelNumber.value = @"1";
+        modelNumber.type = ModelTextField;
+        modelNumber.modelTextFieldType = ModelTextFieldType;
+        modelType.keyBoardType = UIKeyboardTypeNumberPad;
+        [array addObject:modelNumber];
         
         TextRLModel *modelDate = [[TextRLModel alloc] init];
         modelDate.textLeft = @"Ngày nhập hàng";
-        modelDate.textRight = [NSDate stringForDisplayFromDate:[NSDate date]];
+        modelDate.textRight = [NSDate stringFromDate:[NSDate date] withFormat:@"dd-MM-yyy HH:mm"];
         modelDate.type = ModelTextRL;
         [array addObject:modelDate];
         
@@ -30,12 +39,14 @@
         modelInput.text = @"Nhập vào";
         modelInput.type = ModelTextField;
         modelInput.modelTextFieldType = ModelTextFieldInput;
+        modelInput.keyBoardType = UIKeyboardTypeNumberPad;
         [array addObject:modelInput];
         
         TextFieldModel *modelOutPut = [[TextFieldModel alloc] init];
         modelOutPut.text = @"Bán ra";
         modelOutPut.type = ModelTextField;
         modelOutPut.modelTextFieldType = ModelTextFieldInput;
+        modelOutPut.keyBoardType = UIKeyboardTypeNumberPad;
         [array addObject:modelOutPut];
         
         PhotoModel *photoModel = [[PhotoModel alloc] init];

@@ -12,6 +12,17 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTouchInPhoto)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [self addGestureRecognizer:singleTap];
+    [self setUserInteractionEnabled:YES];
+}
+
+- (void)actionTouchInPhoto {
+    if (self.didTakePhoto) {
+        self.didTakePhoto();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

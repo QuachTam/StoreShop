@@ -18,4 +18,6 @@ typedef NS_ENUM(NSInteger, TypeModelTextField) {
 @property (nonatomic, readwrite) TypeModelTextField modelTextFieldType;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *value;
+
+@property (nonatomic, readwrite) UIKeyboardType keyBoardType;
 @end

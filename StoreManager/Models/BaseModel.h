@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, ModelStyle) {
     ModelTextField,
     ModelTextRL,
     ModelPhoto,
+    ModelPickerDate
 };
 
 @interface BaseModel : NSObject

@@ -58,6 +58,8 @@
 		645A16071C286CDC0094802A /* TextRLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A16061C286CDC0094802A /* TextRLModel.m */; };
 		645A160A1C286DC30094802A /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A16091C286DC30094802A /* NSDate+Helper.m */; };
 		74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */; };
+		FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */; };
+		FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,9 @@
 		645A16081C286DC30094802A /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		645A16091C286DC30094802A /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		713A5350A73855817536F6E6 /* Pods-StoreManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreManager/Pods-StoreManager.debug.xcconfig"; sourceTree = "<group>"; };
+		FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellDatePicker.h; sourceTree = "<group>"; };
+		FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellDatePicker.m; sourceTree = "<group>"; };
+		FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellDatePicker.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +272,7 @@
 		645A15891C284BFB0094802A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				FB67A1AF1C290D2F00DF6FAD /* CustomCellDatePicker */,
 				645A15FF1C286BE70094802A /* CustomTextRightLeft */,
 				645A15F91C2862E30094802A /* CustomCellPhoto */,
 				645A15E61C285B470094802A /* CustomCellTextField */,
@@ -492,6 +498,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB67A1AF1C290D2F00DF6FAD /* CustomCellDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */,
+				FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */,
+				FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */,
+			);
+			path = CustomCellDatePicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,6 +593,7 @@
 			files = (
 				645A15BC1C284BFB0094802A /* VCRoot.xib in Resources */,
 				645A15DF1C2851B90094802A /* VCItems.xib in Resources */,
+				FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */,
 				645A156B1C284B150094802A /* LaunchScreen.xib in Resources */,
 				645A16041C286BF30094802A /* CustomTextRightLeft.xib in Resources */,
 				645A15BA1C284BFB0094802A /* VCMenu.xib in Resources */,
@@ -679,6 +696,7 @@
 				645A155A1C284B150094802A /* main.m in Sources */,
 				645A160A1C286DC30094802A /* NSDate+Helper.m in Sources */,
 				645A15E41C28571D0094802A /* VCAddItem.m in Sources */,
+				FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */,
 				645A15AE1C284BFB0094802A /* QSCommon.m in Sources */,
 				645A15BB1C284BFB0094802A /* VCRoot.m in Sources */,
 				645A15F21C285DA90094802A /* BaseModel.m in Sources */,
@@ -812,6 +830,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/StoreManager/Resource/StoreManager-PrefixHeader.pch";
 				INFOPLIST_FILE = StoreManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -825,6 +844,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/StoreManager/Resource/StoreManager-PrefixHeader.pch";
 				INFOPLIST_FILE = StoreManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

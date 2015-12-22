@@ -41,6 +41,7 @@ static NSString *kNSDateHelperFormatTimeWithPrefix      = @"'at' h:mm a";
 static NSString *kNSDateHelperFormatSQLDate             = @"yyyy-MM-dd";
 static NSString *kNSDateHelperFormatSQLTime             = @"HH:mm:ss";
 static NSString *kNSDateHelperFormatSQLDateWithTime     = @"yyyy-MM-dd HH:mm:ss";
+static NSString *kNSDateHelperFormatSQLDateTime     = @"yyyy-MM-dd HH:mm";
 
 @implementation NSDate (Helper)
 

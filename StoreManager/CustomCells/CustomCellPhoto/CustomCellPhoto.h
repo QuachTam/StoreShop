@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelText;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 
+@property (nonatomic, strong) void(^didTakePhoto)();
 @end

@@ -11,4 +11,6 @@
 @interface TextRLModel : BaseModel
 @property (nonatomic, strong) NSString *textLeft;
 @property (nonatomic, strong) NSString *textRight;
+
+@property (nonatomic, strong) NSDate *date;
 @end
