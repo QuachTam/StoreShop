@@ -18,15 +18,19 @@
 #import "TextRLModel.h"
 #import "CustomCellDatePicker.h"
 #import "CameraObject.h"
+#import "UIActionSheet+Blocks.h"
 
 static NSString *customCellTextField = @"CustomCellTextField";
 static NSString *customCellPhoto = @"CustomCellPhoto";
 static NSString *customTextRightLeft = @"CustomTextRightLeft";
 static NSString *customCellDatePicker = @"CustomCellDatePicker";
 
-@interface VCAddItem ()<CameraObjectDelegate, UIActionSheetDelegate>
+@interface VCAddItem ()<CameraObjectDelegate, UIActionSheetDelegate>{
+    PhotoModel *photoModel;
+}
 @property (nonatomic, strong) ModelManager *modelManager;
 @property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
+
 @end
 
 @implementation VCAddItem
@@ -41,9 +45,46 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"Thêm mới mặt hàng";
     [self registerTableViewCell];
-//    UIColor * lightGrayColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0];
-//    [self.tbView setBackgroundColor:lightGrayColor];
+    [self rightButtonNavicationBar];
+}
+
+- (void)rightButtonNavicationBar {
+    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveNewItem)];
+    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
+}
+
+- (void)saveNewItem {
+    TextFieldModel *modelType = [self.modelManager.modelList objectAtIndex:0];
+    TextFieldModel *modelNumber = [self.modelManager.modelList objectAtIndex:1];
+    TextRLModel *modelDate = [self.modelManager.modelList objectAtIndex:2];
+    TextFieldModel *modelInput = [self.modelManager.modelList objectAtIndex:3];
+    TextFieldModel *modelOutPut = [self.modelManager.modelList objectAtIndex:4];
+    PhotoModel *photoModel = [self.modelManager.modelList objectAtIndex:5];
+    NSString *message = nil;
+    if (!modelOutPut.text.length) {
+        message = @"Mời nhập vào giá bán";
+    }
+    if (!modelInput.text.length) {
+        message = @"Mời nhập vào giá mua";
+    }
+    if (!modelDate.date) {
+        message = @"Mời nhập vào ngày nhập hàng";
+    }
+    if (!modelNumber.text.length) {
+        message = @"Mời nhập vào số lượng hàng";
+    }
+    if (!modelType.text.length) {
+        message = @"Mời nhập vào tên mặt hàng";
+    }
+    
+    if (!message) {
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Đồng ý", nil];
+        [alert show];
+    }
 }
 
 - (void)registerTableViewCell {
@@ -101,9 +142,12 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
             }
             NSIndexPath *newIndexPath = [self calculateIndexPathForNewPicker:indexPath];
             [self insertCell:newIndexPath typeModel:ModelPickerDate tableView:tableView];
+            self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
         }
     }
 }
+
+#pragma mark CustomCellTextField
 
 - (CustomCellTextField *)customCellTextFieldCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     CustomCellTextField *cell = [self.tbView dequeueReusableCellWithIdentifier:customCellTextField];
@@ -129,8 +173,10 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     if (baseModel.value) {
         cell.textField.text = baseModel.value;
     }
+    cell.model = baseModel;
 }
 
+#pragma mark CustomCellPhoto
 - (CustomCellPhoto *)customCellPhotoCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     CustomCellPhoto *cell = [self.tbView dequeueReusableCellWithIdentifier:customCellPhoto];
     if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
@@ -143,14 +189,43 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
         selectedBackgroundCell.selected = YES;
         cell.selectedBackgroundView = selectedBackgroundCell;
     }
+    photoModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
     cell.didTakePhoto = ^{
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Chụp ảnh" delegate:self cancelButtonTitle:@"Huỷ" destructiveButtonTitle:nil otherButtonTitles:@"Chụp ảnh", @"Chọn ảnh", nil];
-        [actionSheet showInView:self.view];
+        [UIActionSheet showInView:self.view
+                        withTitle:@"Chụp ảnh"
+                cancelButtonTitle:@"Huỷ"
+           destructiveButtonTitle:nil
+                otherButtonTitles:@[@"Chụp ảnh", @"Chọn ảnh"]
+                         tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+                             NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+                             if (![title isEqualToString:@"Huỷ"]) {
+                                 CameraObject *camera = [CameraObject shareInstance];
+                                 camera.delegate = self;
+                                 camera.supperView = self;
+                                 if([title isEqualToString:@"Chụp ảnh"]){
+                                     camera.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                 }
+                                 if ([title isEqualToString:@"Chọn ảnh"]) {
+                                     camera.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                 }
+                                 [camera showCamera];
+                             }
+                         }];
     };
     [self configureCustomCellPhotoCell:cell atIndexPath:indexPath tableView:tableView];
     return cell;
 }
 
+- (void)configureCustomCellPhotoCell:(CustomCellPhoto *)cell atIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
+    // some code for initializing cell content
+    PhotoModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
+    cell.labelText.text = baseModel.text;
+    if (baseModel.photo) {
+        cell.photo.image = baseModel.photo;
+    }
+}
+
+#pragma mark CustomTextRightLeft
 - (CustomTextRightLeft *)customTextRightLeftCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     CustomTextRightLeft *cell = [self.tbView dequeueReusableCellWithIdentifier:customTextRightLeft];
     if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
@@ -167,6 +242,14 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return cell;
 }
 
+- (void)configureCustomTextRightLeftCell:(CustomTextRightLeft *)cell atIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
+    // some code for initializing cell content
+    TextRLModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
+    cell.labelLeft.text = [NSString stringWithFormat:@"%@:", baseModel.textLeft];
+    cell.labelRight.text = baseModel.textRight;
+}
+
+#pragma mark CustomCellDatePicker
 - (CustomCellDatePicker *)customCellDatePickerAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     CustomCellDatePicker *cell = [self.tbView dequeueReusableCellWithIdentifier:customCellDatePicker];
     if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
@@ -186,21 +269,19 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return cell;
 }
 
-- (void)configureCustomCellPhotoCell:(CustomCellPhoto *)cell atIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
-    // some code for initializing cell content
-    PhotoModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
-    cell.labelText.text = baseModel.text;
-    if (baseModel.photo) {
-        cell.photo.image = baseModel.photo;
+- (void)setDateForCell:(NSString *)stringDate date:(NSDate*)date{
+    NSIndexPath *parentCellIndexPath = nil;
+    if ([self datePickerIsShown]){
+        parentCellIndexPath = [NSIndexPath indexPathForRow:self.datePickerIndexPath.row - 1 inSection:0];
+    }else {
+        return;
     }
+    TextRLModel *model = [self.modelManager.modelList objectAtIndex:parentCellIndexPath.row];
+    model.date = date;
+    CustomTextRightLeft *cell = (CustomTextRightLeft*)[self.tbView cellForRowAtIndexPath:parentCellIndexPath];
+    cell.labelRight.text = stringDate;
 }
 
-- (void)configureCustomTextRightLeftCell:(CustomTextRightLeft *)cell atIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
-    // some code for initializing cell content
-    TextRLModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
-    cell.labelLeft.text = [NSString stringWithFormat:@"%@:", baseModel.textLeft];
-    cell.labelRight.text = baseModel.textRight;
-}
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     static CustomCellTextField *sizingCell = nil;
@@ -234,20 +315,6 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return newIndexPath;
 }
 
-- (void)setDateForCell:(NSString *)stringDate date:(NSDate*)date{
-    NSIndexPath *parentCellIndexPath = nil;
-    if ([self datePickerIsShown]){
-        parentCellIndexPath = [NSIndexPath indexPathForRow:self.datePickerIndexPath.row - 1 inSection:0];
-    }else {
-        return;
-    }
-    TextRLModel *model = [self.modelManager.modelList objectAtIndex:parentCellIndexPath.row];
-    model.date = date;
-    CustomTextRightLeft *cell = [self.tbView cellForRowAtIndexPath:parentCellIndexPath];
-    cell.labelRight.text = stringDate;
-}
-
-
 - (void)insertCell:(NSIndexPath*)indexPath typeModel:(ModelStyle)typeModel tableView:(UITableView*)tableView{
     NSMutableArray *array = [NSMutableArray arrayWithArray:self.modelManager.modelList];
     TextRLModel *modelNew = [[TextRLModel alloc] init];
@@ -259,7 +326,6 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
     [[self tbView] insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
     [tableView endUpdates];
-    self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
 }
 
 - (void)deleteCell:(NSInteger)index tableView:(UITableView*)tableView{
@@ -276,28 +342,11 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return self.datePickerIndexPath != nil;
 }
 
-#pragma mark delegate UIActionSheet
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if (![title isEqualToString:@"Huỷ"]) {
-        CameraObject *camera = [CameraObject shareInstance];
-        camera.delegate = self;
-        camera.supperView = self;
-        if([title isEqualToString:@"Chụp ảnh"]){
-            camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-        }
-        if ([title isEqualToString:@"Chọn ảnh"]) {
-            camera.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        }
-        [camera showCamera];
-    }
-}
-
 #pragma mark delegate camera
 
 - (void)didFinishPickingMediaWithInfo:(UIImage *)image {
-    
+    photoModel.photo = image;
+    [self.tbView reloadData];
 }
 
 - (void)imagePickerControllerDidCancel {

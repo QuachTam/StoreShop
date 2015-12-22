@@ -26,7 +26,7 @@
         modelNumber.value = @"1";
         modelNumber.type = ModelTextField;
         modelNumber.modelTextFieldType = ModelTextFieldType;
-        modelType.keyBoardType = UIKeyboardTypeNumberPad;
+        modelNumber.keyBoardType = UIKeyboardTypeNumberPad;
         [array addObject:modelNumber];
         
         TextRLModel *modelDate = [[TextRLModel alloc] init];
@@ -39,14 +39,14 @@
         modelInput.text = @"Nhập vào";
         modelInput.type = ModelTextField;
         modelInput.modelTextFieldType = ModelTextFieldInput;
-        modelInput.keyBoardType = UIKeyboardTypeNumberPad;
+        modelInput.keyBoardType = UIKeyboardTypeDefault;
         [array addObject:modelInput];
         
         TextFieldModel *modelOutPut = [[TextFieldModel alloc] init];
         modelOutPut.text = @"Bán ra";
         modelOutPut.type = ModelTextField;
         modelOutPut.modelTextFieldType = ModelTextFieldInput;
-        modelOutPut.keyBoardType = UIKeyboardTypeNumberPad;
+        modelOutPut.keyBoardType = UIKeyboardTypeDefault;
         [array addObject:modelOutPut];
         
         PhotoModel *photoModel = [[PhotoModel alloc] init];

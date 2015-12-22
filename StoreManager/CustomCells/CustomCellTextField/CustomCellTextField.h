@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomCellCommon.h"
+#import "TextFieldModel.h"
 
-@interface CustomCellTextField : CustomCellCommon
+@interface CustomCellTextField : CustomCellCommon <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelText;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
+@property (nonatomic, strong) TextFieldModel *model;
 @end

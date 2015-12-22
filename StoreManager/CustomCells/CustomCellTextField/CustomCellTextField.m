@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.textField.delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeTextField:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,4 +22,13 @@
     // Configure the view for the selected state
 }
 
+- (void)didChangeTextField:(NSNotification*)notification {
+    UITextField *textField = notification.object;
+    self.model.text = textField.text;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    self.model.text = nil;
+    return YES;
+}
 @end
