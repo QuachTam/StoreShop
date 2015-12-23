@@ -61,6 +61,7 @@
 		6464FCCA1C29BBDA0009C040 /* CustomCellPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */; };
 		6464FCCB1C29BBDA0009C040 /* CustomCellPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */; };
 		74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */; };
+		FB35C6FA1C2A479000A6E07E /* PickerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB35C6F91C2A479000A6E07E /* PickerViewModel.m */; };
 		FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */; };
 		FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */; };
 /* End PBXBuildFile section */
@@ -170,6 +171,8 @@
 		6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellPickerView.m; sourceTree = "<group>"; };
 		6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellPickerView.xib; sourceTree = "<group>"; };
 		713A5350A73855817536F6E6 /* Pods-StoreManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreManager/Pods-StoreManager.debug.xcconfig"; sourceTree = "<group>"; };
+		FB35C6F81C2A479000A6E07E /* PickerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewModel.h; sourceTree = "<group>"; };
+		FB35C6F91C2A479000A6E07E /* PickerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewModel.m; sourceTree = "<group>"; };
 		FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellDatePicker.h; sourceTree = "<group>"; };
 		FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellDatePicker.m; sourceTree = "<group>"; };
 		FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellDatePicker.xib; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 				645A15F11C285DA90094802A /* BaseModel.m */,
 				645A15F61C285F3C0094802A /* ModelManager.h */,
 				645A15F71C285F3C0094802A /* ModelManager.m */,
+				FB35C6F81C2A479000A6E07E /* PickerViewModel.h */,
+				FB35C6F91C2A479000A6E07E /* PickerViewModel.m */,
 				645A16051C286CDC0094802A /* TextRLModel.h */,
 				645A16061C286CDC0094802A /* TextRLModel.m */,
 				645A15ED1C285CD20094802A /* TextFieldModel.h */,
@@ -706,6 +711,7 @@
 				645A15B31C284BFB0094802A /* CustomCellCommon.m in Sources */,
 				645A15B81C284BFB0094802A /* VCBase.m in Sources */,
 				645A16071C286CDC0094802A /* TextRLModel.m in Sources */,
+				FB35C6FA1C2A479000A6E07E /* PickerViewModel.m in Sources */,
 				6464FCCA1C29BBDA0009C040 /* CustomCellPickerView.m in Sources */,
 				645A16031C286BF30094802A /* CustomTextRightLeft.m in Sources */,
 				645A155D1C284B150094802A /* AppDelegate.m in Sources */,

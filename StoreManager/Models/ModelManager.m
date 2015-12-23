@@ -14,11 +14,11 @@
 - (NSArray *)modelList {
     if (!_modelList) {
         NSMutableArray *array = [NSMutableArray new];
-        TextFieldModel *modelType = [[TextFieldModel alloc] init];
-        modelType.text = @"Loại mặt hàng";
-        modelType.type = ModelTextField;
-        modelType.modelTextFieldType = ModelTextFieldType;
-        modelType.keyBoardType = UIKeyboardTypeDefault;
+        TextRLModel *modelType = [[TextRLModel alloc] init];
+        modelType.textLeft = @"Loại mặt hàng";
+        modelType.type = ModelTextRL;
+        modelType.stringDefine = @"modelType";
+        modelType.index = 0;
         [array addObject:modelType];
         
         TextFieldModel *modelNumber = [[TextFieldModel alloc] init];
@@ -33,6 +33,7 @@
         modelDate.textLeft = @"Ngày nhập hàng";
         modelDate.textRight = [NSDate stringFromDate:[NSDate date] withFormat:@"dd-MM-yyy HH:mm"];
         modelDate.type = ModelTextRL;
+        modelDate.stringDefine = @"modelDate";
         [array addObject:modelDate];
         
         TextFieldModel *modelInput = [[TextFieldModel alloc] init];

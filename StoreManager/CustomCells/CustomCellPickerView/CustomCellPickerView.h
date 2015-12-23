@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PickerViewModel.h"
 
-@interface CustomCellPickerView : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
-
+@interface CustomCellPickerView : UITableViewCell <UIPickerViewDataSource,UIPickerViewDelegate>
+@property (strong, nonatomic) UIPickerView *pickerView;
+@property (nonatomic, strong) PickerViewModel *model;
+@property (nonatomic, copy, readwrite) void(^didSelectedRow)(NSInteger index, NSString *text);
+- (void)reloadPickerView;
 @end

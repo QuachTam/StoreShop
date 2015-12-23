@@ -19,18 +19,21 @@
 #import "CustomCellDatePicker.h"
 #import "CameraObject.h"
 #import "UIActionSheet+Blocks.h"
+#import "CustomCellPickerView.h"
+#import "PickerViewModel.h"
 
 static NSString *customCellTextField = @"CustomCellTextField";
 static NSString *customCellPhoto = @"CustomCellPhoto";
 static NSString *customTextRightLeft = @"CustomTextRightLeft";
 static NSString *customCellDatePicker = @"CustomCellDatePicker";
+static NSString *customCellPickerView = @"CustomCellPickerView";
 
 @interface VCAddItem ()<CameraObjectDelegate, UIActionSheetDelegate>{
     PhotoModel *photoModel;
 }
 @property (nonatomic, strong) ModelManager *modelManager;
 @property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
-
+@property (strong, nonatomic) NSIndexPath *pickerViewIndexPath;
 @end
 
 @implementation VCAddItem
@@ -92,6 +95,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     [self.tbView registerNib:[UINib nibWithNibName:NSStringFromClass([CustomCellPhoto class]) bundle:nil] forCellReuseIdentifier:customCellPhoto];
     [self.tbView registerNib:[UINib nibWithNibName:NSStringFromClass([CustomTextRightLeft class]) bundle:nil] forCellReuseIdentifier:customTextRightLeft];
     [self.tbView registerNib:[UINib nibWithNibName:NSStringFromClass([CustomCellDatePicker class]) bundle:nil] forCellReuseIdentifier:customCellDatePicker];
+    [self.tbView registerNib:[UINib nibWithNibName:NSStringFromClass([CustomCellPickerView class]) bundle:nil] forCellReuseIdentifier:customCellPickerView];
 }
 
 #pragma mark - tableView
@@ -111,6 +115,9 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     if (baseModel.type == ModelPickerDate) {
         return 160;
     }
+    if (baseModel.type == ModelPickerView) {
+        return 160;
+    }
     return [self heightForBasicCellAtIndexPath:indexPath tableView:tableView];
 }
 
@@ -122,6 +129,8 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
         return [self customTextRightLeftCellAtIndexPath:indexPath tableView:tableView];
     }else if(baseModel.type==ModelPickerDate){
         return [self customCellDatePickerAtIndexPath:indexPath tableView:tableView];
+    }else if (baseModel.type==ModelPickerView){
+        return [self customCellPickerViewAtIndexPath:indexPath tableView:tableView];
     }else{
         return [self customCellPhotoCellAtIndexPath:indexPath tableView:tableView];
     }
@@ -131,18 +140,41 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     [self.view endEditing:YES];
     BaseModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
     if (baseModel.type==ModelTextRL) {
-        if (self.datePickerIndexPath && self.datePickerIndexPath.row-1==indexPath.row) {
-            if (index>=0) {
+        TextRLModel *textrlModel = (TextRLModel*)baseModel;
+        if ([textrlModel.stringDefine isEqualToString:@"modelDate"]) {
+            if (self.datePickerIndexPath && self.datePickerIndexPath.row-1==indexPath.row) {
                 [self deleteCell:self.datePickerIndexPath.row tableView:tableView];
+                self.datePickerIndexPath = nil;
+            }else{
+                if (self.datePickerIndexPath) {
+                    [self deleteCell:self.datePickerIndexPath.row tableView:tableView];
+                }
+                NSIndexPath *newIndexPath = [self calculateIndexPathForNewPicker:indexPath];
+                NSMutableArray *array = [NSMutableArray arrayWithArray:self.modelManager.modelList];
+                TextRLModel *modelNew = [[TextRLModel alloc] init];
+                modelNew.type = ModelPickerDate;
+                [array insertObject:modelNew atIndex:indexPath.row+1];
+                self.modelManager.modelList = [array copy];
+                [self insertCell:newIndexPath typeModel:ModelPickerDate tableView:tableView];
+                self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
             }
-            self.datePickerIndexPath = nil;
         }else{
-            if (self.datePickerIndexPath) {
-                [self deleteCell:self.datePickerIndexPath.row tableView:tableView];
+            if (self.pickerViewIndexPath && self.pickerViewIndexPath.row-1==indexPath.row) {
+                [self deleteCell:self.pickerViewIndexPath.row tableView:tableView];
+                self.pickerViewIndexPath = nil;
+            }else{
+                if (self.pickerViewIndexPath) {
+                    [self deleteCell:self.pickerViewIndexPath.row tableView:tableView];
+                }
+                NSIndexPath *newIndexPath = [self calculateIndexPathForNewPickerView:indexPath];
+                NSMutableArray *array = [NSMutableArray arrayWithArray:self.modelManager.modelList];
+                PickerViewModel *modelNew = [[PickerViewModel alloc] init];
+                modelNew.type = ModelPickerView;
+                [array insertObject:modelNew atIndex:indexPath.row+1];
+                self.modelManager.modelList = [array copy];
+                [self insertCell:newIndexPath typeModel:ModelPickerView tableView:tableView];
+                self.pickerViewIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
             }
-            NSIndexPath *newIndexPath = [self calculateIndexPathForNewPicker:indexPath];
-            [self insertCell:newIndexPath typeModel:ModelPickerDate tableView:tableView];
-            self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
         }
     }
 }
@@ -246,8 +278,37 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     // some code for initializing cell content
     TextRLModel *baseModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
     cell.labelLeft.text = [NSString stringWithFormat:@"%@:", baseModel.textLeft];
+    if ([baseModel.stringDefine isEqualToString:@"modelType"]) {
+        if (!baseModel.textRight) {
+            baseModel.textRight = @"Number 1";
+        }
+    }
     cell.labelRight.text = baseModel.textRight;
 }
+
+#pragma mark CustomCellPickerView
+
+- (CustomCellPickerView *)customCellPickerViewAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
+    CustomCellPickerView *cell = [self.tbView dequeueReusableCellWithIdentifier:customCellPickerView];
+    if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
+        CustomCellBackground * backgroundCell = [[CustomCellBackground alloc] init];
+        cell.backgroundView = backgroundCell;
+    }
+    
+    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
+        CustomCellBackground * selectedBackgroundCell = [[CustomCellBackground alloc] init];
+        selectedBackgroundCell.selected = YES;
+        cell.selectedBackgroundView = selectedBackgroundCell;
+    }
+    cell.didSelectedRow = ^(NSInteger index, NSString *text) {
+        [self setTextForCell:text index:index];
+    };
+    PickerViewModel *pickerModel = [self.modelManager.modelList objectAtIndex:indexPath.row];
+    cell.model = pickerModel;
+    [cell reloadPickerView];
+    return cell;
+}
+
 
 #pragma mark CustomCellDatePicker
 - (CustomCellDatePicker *)customCellDatePickerAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
@@ -269,9 +330,23 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return cell;
 }
 
+- (void)setTextForCell:(NSString *)string index:(NSInteger)index{
+    NSIndexPath *parentCellIndexPath = nil;
+    if (self.pickerViewIndexPath){
+        parentCellIndexPath = [NSIndexPath indexPathForRow:self.pickerViewIndexPath.row - 1 inSection:0];
+    }else {
+        return;
+    }
+    TextRLModel *model = [self.modelManager.modelList objectAtIndex:parentCellIndexPath.row];
+    model.index = index;
+    model.textRight = string;
+    CustomTextRightLeft *cell = (CustomTextRightLeft*)[self.tbView cellForRowAtIndexPath:parentCellIndexPath];
+    cell.labelRight.text = string;
+}
+
 - (void)setDateForCell:(NSString *)stringDate date:(NSDate*)date{
     NSIndexPath *parentCellIndexPath = nil;
-    if ([self datePickerIsShown]){
+    if (self.datePickerIndexPath){
         parentCellIndexPath = [NSIndexPath indexPathForRow:self.datePickerIndexPath.row - 1 inSection:0];
     }else {
         return;
@@ -315,13 +390,17 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     return newIndexPath;
 }
 
+- (NSIndexPath *)calculateIndexPathForNewPickerView:(NSIndexPath *)selectedIndexPath {
+    NSIndexPath *newIndexPath;
+    if (self.pickerViewIndexPath && (self.pickerViewIndexPath.row < selectedIndexPath.row)){
+        newIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row - 1 inSection:0];
+    }else {
+        newIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row  inSection:0];
+    }
+    return newIndexPath;
+}
+
 - (void)insertCell:(NSIndexPath*)indexPath typeModel:(ModelStyle)typeModel tableView:(UITableView*)tableView{
-    NSMutableArray *array = [NSMutableArray arrayWithArray:self.modelManager.modelList];
-    TextRLModel *modelNew = [[TextRLModel alloc] init];
-    modelNew.type = typeModel;
-    [array insertObject:modelNew atIndex:indexPath.row+1];
-    self.modelManager.modelList = [array copy];
-    
     [tableView beginUpdates];
     NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
     [[self tbView] insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
