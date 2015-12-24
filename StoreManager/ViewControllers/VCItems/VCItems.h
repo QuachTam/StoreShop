@@ -10,5 +10,6 @@
 #import "VCBase.h"
 
 @interface VCItems : VCBase
+@property (weak, nonatomic) IBOutlet UITableView *tbView;
 
 @end

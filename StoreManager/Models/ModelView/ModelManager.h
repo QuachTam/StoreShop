@@ -10,7 +10,9 @@
 #import "TextFieldModel.h"
 #import "PhotoModel.h"
 #import "TextRLModel.h"
+#import "ModelItem.h"
 
 @interface ModelManager : NSObject
 @property (nonatomic, strong) NSArray *modelList;
+
 @end

@@ -10,5 +10,5 @@
 
 @interface VCAddItem : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tbView;
-
+@property (nonatomic, strong) NSString *uuidItem;
 @end
