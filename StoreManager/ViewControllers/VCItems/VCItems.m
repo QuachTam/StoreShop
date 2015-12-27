@@ -74,6 +74,10 @@ static NSString *stringIdentify = @"CustomCellItem";
 }
 
 #pragma mark - tableView
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return [[self.service.fetchedResultsController sections] count];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id< NSFetchedResultsSectionInfo> sectionInfo = [[self.service fetchedResultsController] sections][section];
@@ -87,6 +91,10 @@ static NSString *stringIdentify = @"CustomCellItem";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self basicCellAtIndexPath:indexPath tableView:tableView];
 }
+
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+//    return [self.service.fetchedResultsController sectionIndexTitles];
+//}
 
 - (CustomCellItem *)basicCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
     CustomCellItem *cell = [self.tbView dequeueReusableCellWithIdentifier:stringIdentify];

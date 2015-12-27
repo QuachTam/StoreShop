@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RWLabel.h"
 
 @interface CustomTextRightLeft : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelLeft;
-@property (weak, nonatomic) IBOutlet UILabel *labelRight;
+@property (weak, nonatomic) IBOutlet RWLabel *labelRight;
 
 @end

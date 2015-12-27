@@ -2,7 +2,7 @@
 //  TypeItem.h
 //  StoreManager
 //
-//  Created by ATam on 12/24/15.
+//  Created by ATam on 12/27/15.
 //  Copyright (c) 2015 ATam. All rights reserved.
 //
 
@@ -14,6 +14,14 @@
 
 @interface TypeItem : Base
 
-@property (nonatomic, retain) Item *item;
+@property (nonatomic, retain) NSSet *item;
+@end
+
+@interface TypeItem (CoreDataGeneratedAccessors)
+
+- (void)addItemObject:(Item *)value;
+- (void)removeItemObject:(Item *)value;
+- (void)addItem:(NSSet *)values;
+- (void)removeItem:(NSSet *)values;
 
 @end

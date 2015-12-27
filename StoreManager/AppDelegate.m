@@ -28,7 +28,7 @@ static NSString *storeName = @"StoreManager.sqlite";
         for (NSInteger index=0; index<10; index++) {
             Item *entity = [Item MR_createEntityInContext:localContext];
             entity.uuid = [[NSUUID UUID].UUIDString lowercaseString];
-            entity.name = [NSString stringWithFormat:@"name %ld", index];
+            entity.name = [NSString stringWithFormat:@"%ld name", index];
             entity.dateCreate = [NSDate date];
             entity.moneyOutput = @"200";
             entity.moneyInput = @"100";
@@ -39,7 +39,7 @@ static NSString *storeName = @"StoreManager.sqlite";
             }
             TypeItem *typeEntity = [TypeItem MR_createEntityInContext:localContext];
             typeEntity.uuid = [[NSUUID UUID].UUIDString lowercaseString];
-            typeEntity.name = [NSString stringWithFormat:@"type %ld", (long)index];
+            typeEntity.name = [NSString stringWithFormat:@"%ld type", (long)index];
             
             [entity setTypeItem:typeEntity];
         }

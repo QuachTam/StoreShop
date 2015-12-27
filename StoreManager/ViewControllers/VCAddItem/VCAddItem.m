@@ -104,17 +104,15 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     BaseModel *baseModel = [self.service.modelList objectAtIndex:indexPath.row];
     if (baseModel.type == ModelPhoto) {
         return 207;
-    }
-    if (baseModel.type == ModelTextRL) {
+    }else if (baseModel.type == ModelTextRL) {
+        return [self heightForBasicCellAtIndexPath:indexPath tableView:tableView];
+    }else if (baseModel.type == ModelPickerDate) {
+        return 160;
+    }else if (baseModel.type == ModelPickerView) {
+        return 160;
+    }else{
         return 44;
     }
-    if (baseModel.type == ModelPickerDate) {
-        return 160;
-    }
-    if (baseModel.type == ModelPickerView) {
-        return 160;
-    }
-    return [self heightForBasicCellAtIndexPath:indexPath tableView:tableView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -208,7 +206,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     photoModel = [self.service.modelList objectAtIndex:indexPath.row];
     cell.didTakePhoto = ^{
         [UIActionSheet showInView:self.view
-                        withTitle:@"Chụp ảnh"
+                        withTitle:nil
                 cancelButtonTitle:@"Huỷ"
            destructiveButtonTitle:nil
                 otherButtonTitles:@[@"Chụp ảnh", @"Chọn ảnh"]
@@ -300,13 +298,13 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
 
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
-    static CustomCellTextField *sizingCell = nil;
+    static CustomTextRightLeft *sizingCell = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sizingCell = [self.tbView dequeueReusableCellWithIdentifier:customCellTextField];
+        sizingCell = [self.tbView dequeueReusableCellWithIdentifier:customTextRightLeft];
     });
     
-    [self configureCustomCellTextFieldCell:sizingCell atIndexPath:indexPath tableView:tableView];
+    [self configureCustomTextRightLeftCell:sizingCell atIndexPath:indexPath tableView:tableView];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
 

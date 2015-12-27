@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VCBase.h"
 
-@interface VCItems : VCBase
+@interface VCItems : VCBase <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tbView;
 
 @end

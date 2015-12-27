@@ -3,9 +3,8 @@
     <entity name="Base" representedClassName="Base" isAbstract="YES" syncable="YES">
         <attribute name="dateCreate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="syncID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
-    <entity name="Group" representedClassName="Group" parentEntity="Base" syncable="YES"/>
     <entity name="Item" representedClassName="Item" parentEntity="Base" syncable="YES">
         <attribute name="dateInput" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateOutput" optional="YES" attributeType="Date" syncable="YES"/>
@@ -16,12 +15,11 @@
         <relationship name="typeItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeItem" inverseName="item" inverseEntity="TypeItem" syncable="YES"/>
     </entity>
     <entity name="TypeItem" representedClassName="TypeItem" parentEntity="Base" syncable="YES">
-        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="typeItem" inverseEntity="Item" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="typeItem" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
         <element name="Base" positionX="-36" positionY="-144" width="128" height="88"/>
-        <element name="Group" positionX="-288" positionY="-279" width="128" height="43"/>
-        <element name="Item" positionX="-540" positionY="-27" width="128" height="148"/>
-        <element name="TypeItem" positionX="-207" positionY="99" width="128" height="58"/>
+        <element name="Item" positionX="-497" positionY="-99" width="128" height="148"/>
+        <element name="TypeItem" positionX="-207" positionY="99" width="128" height="60"/>
     </elements>
 </model>
