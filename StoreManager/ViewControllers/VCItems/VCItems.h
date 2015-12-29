@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "VCBase.h"
+#import "QRCodeReaderViewController.h"
+#import "QRCodeReader.h"
 
-@interface VCItems : VCBase <UITableViewDataSource, UITableViewDelegate>
+@interface VCItems : VCBase <UITableViewDataSource, UITableViewDelegate, QRCodeReaderDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tbView;
 
 @end

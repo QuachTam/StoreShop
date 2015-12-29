@@ -57,11 +57,9 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
 
 - (void)saveNewItem {
     TextRLModel *modelType = [self.service.modelList objectAtIndex:0];
-    TextFieldModel *modelNumber = [self.service.modelList objectAtIndex:1];
-    TextRLModel *modelDate = [self.service.modelList objectAtIndex:2];
-    TextFieldModel *modelInput = [self.service.modelList objectAtIndex:3];
-    TextFieldModel *modelOutPut = [self.service.modelList objectAtIndex:4];
-    PhotoModel *photoModel = [self.service.modelList objectAtIndex:5];
+    TextRLModel *modelDate = [self.service.modelList objectAtIndex:1];
+    TextFieldModel *modelInput = [self.service.modelList objectAtIndex:2];
+    TextFieldModel *modelOutPut = [self.service.modelList objectAtIndex:3];
     NSString *message = nil;
     if (!modelOutPut.text.length) {
         message = @"Mời nhập vào giá bán";
@@ -72,15 +70,19 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     if (!modelDate.date) {
         modelDate.date = [NSDate date];
     }
-    if (!modelNumber.text.length) {
-        message = @"Mời nhập vào số lượng hàng";
-    }
     if (!modelType.textRight.length) {
         message = @"Mời nhập chọn loại mặt hàng";
     }
     
     if (!message) {
+        self.service.modelItem.dateCreate = modelDate.date;
+        self.service.modelItem.moneyInput = modelInput.value;
+        self.service.modelItem.moneyOutput = modelOutPut.value;
         
+        [self.service saveItem:self.service.modelItem qrcode:self.qrcode success:^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Lưu thành công" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Đồng ý", nil];
+            [alert show];
+        }];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Đồng ý", nil];
         [alert show];
@@ -153,8 +155,12 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
         }else{
             VCTypeItem *typeItems = [[VCTypeItem alloc] init];
             typeItems.didSelectedRow = ^(ModelTypeItem *modelType){
+                self.service.modelItem.modelTypeItem = modelType;
+                
                 TextRLModel *baseModel = [self.service.modelList objectAtIndex:indexPath.row];
-                CustomCellTextField *cell = [tableView cellForRowAtIndexPath:indexPath];
+                baseModel.textRight = modelType.name;
+                CustomTextRightLeft *cell = [tableView cellForRowAtIndexPath:indexPath];
+                cell.labelRight.text = baseModel.textRight;
             };
             [self.navigationController pushViewController:typeItems animated:YES];
         }

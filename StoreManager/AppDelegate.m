@@ -24,28 +24,28 @@ static NSString *storeName = @"StoreManager.sqlite";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:storeName];
-    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        for (NSInteger index=0; index<10; index++) {
-            Item *entity = [Item MR_createEntityInContext:localContext];
-            entity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
-            entity.name = [NSString stringWithFormat:@"%ld name", index];
-            entity.dateCreate = [NSDate date];
-            entity.moneyOutput = @"200";
-            entity.moneyInput = @"100";
-            if (index%2) {
-                entity.isSell = @(0);
-            }else{
-                entity.isSell = @(1);
-            }
-            TypeItem *typeEntity = [TypeItem MR_createEntityInContext:localContext];
-            typeEntity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
-            typeEntity.name = [NSString stringWithFormat:@"%ld type", (long)index];
-            
-            [entity setTypeItem:typeEntity];
-        }
-    }];
-    
-    NSArray *list = [Item MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
+//    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+//        for (NSInteger index=0; index<10; index++) {
+//            Item *entity = [Item MR_createEntityInContext:localContext];
+//            entity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
+//            entity.name = [NSString stringWithFormat:@"%ld name", index];
+//            entity.dateCreate = [NSDate date];
+//            entity.moneyOutput = @"200";
+//            entity.moneyInput = @"100";
+//            if (index%2) {
+//                entity.isSell = @(0);
+//            }else{
+//                entity.isSell = @(1);
+//            }
+//            TypeItem *typeEntity = [TypeItem MR_createEntityInContext:localContext];
+//            typeEntity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
+//            typeEntity.name = [NSString stringWithFormat:@"%ld type", (long)index];
+//            
+//            [entity setTypeItem:typeEntity];
+//        }
+//    }];
+//    
+//    NSArray *list = [Item MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     VCRoot *root = [[VCRoot alloc] init];

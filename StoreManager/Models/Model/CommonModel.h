@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CommonModel : NSObject
-@property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) NSString *syncID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSDate *dateCreate;
 @end

@@ -9,6 +9,7 @@
 #import "CommonModel.h"
 #import "Item.h"
 #import "ModelTypeItem.h"
+#import "QRCodeModel.h"
 
 @interface ModelItem : CommonModel
 @property (nonatomic, retain) NSDate * dateUpdate;
@@ -18,6 +19,7 @@
 @property (nonatomic, retain) NSString * moneyInput;
 @property (nonatomic, retain) NSString * moneyOutput;
 @property (nonatomic, retain) ModelTypeItem *modelTypeItem;
+@property (nonatomic, retain) QRCodeModel *modelQRCode;
 
 @property (nonatomic, strong) Item *entity;
 - (instancetype)initWithEntity:(Item *)entity;
