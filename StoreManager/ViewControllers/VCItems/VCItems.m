@@ -59,7 +59,12 @@ static NSString *stringIdentify = @"CustomCellItem";
 }
 
 - (void)rightButtonNavicationBar {
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
+    UIButton *buttonQrcode = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonQrcode setFrame:CGRectMake(0, 0, 25, 25)];
+    [buttonQrcode setImage:[UIImage imageNamed:@"qrCode"] forState:UIControlStateNormal];
+    [buttonQrcode addTarget:self action:@selector(actionNewItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithCustomView:buttonQrcode];
     
     self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
 }

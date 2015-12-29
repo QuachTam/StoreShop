@@ -15,7 +15,7 @@
 {
     if (self = [super init]) {
         _entity = entity;
-        self.uuid = entity.uuid;
+        self.uuid = entity.syncID;
     }
     return self;
 }

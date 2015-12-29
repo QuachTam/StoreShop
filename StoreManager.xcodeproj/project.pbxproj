@@ -70,12 +70,14 @@
 		645FCE681C2C0F2000A9C69E /* CustomCellItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645FCE661C2C0F2000A9C69E /* CustomCellItem.xib */; };
 		645FCE6B1C2C3ED800A9C69E /* AddItemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 645FCE6A1C2C3ED800A9C69E /* AddItemService.m */; };
 		645FCE711C2C4F7500A9C69E /* TypeItemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 645FCE701C2C4F7500A9C69E /* TypeItemService.m */; };
+		64631E511C31929500F09595 /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64631E4F1C31929500F09595 /* qrCode@2x.png */; };
+		64631E521C31929500F09595 /* qrCode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64631E501C31929500F09595 /* qrCode@3x.png */; };
+		64631E551C31933300F09595 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 64631E541C31933300F09595 /* Item.m */; };
+		64631E581C31933400F09595 /* TypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 64631E571C31933400F09595 /* TypeItem.m */; };
+		64631E5B1C31933400F09595 /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 64631E5A1C31933400F09595 /* Base.m */; };
 		6464FCC51C29B55A0009C040 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC41C29B55A0009C040 /* UIActionSheet+Blocks.m */; };
 		6464FCCA1C29BBDA0009C040 /* CustomCellPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */; };
 		6464FCCB1C29BBDA0009C040 /* CustomCellPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */; };
-		64A9DC2C1C302CAB0022CF83 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A9DC2B1C302CAB0022CF83 /* Item.m */; };
-		64A9DC2F1C302CAC0022CF83 /* TypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A9DC2E1C302CAC0022CF83 /* TypeItem.m */; };
-		64A9DC321C302CAC0022CF83 /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A9DC311C302CAC0022CF83 /* Base.m */; };
 		74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */; };
 		FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */; };
 		FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */; };
@@ -203,17 +205,19 @@
 		645FCE6A1C2C3ED800A9C69E /* AddItemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemService.m; sourceTree = "<group>"; };
 		645FCE6F1C2C4F7500A9C69E /* TypeItemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeItemService.h; sourceTree = "<group>"; };
 		645FCE701C2C4F7500A9C69E /* TypeItemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeItemService.m; sourceTree = "<group>"; };
+		64631E4F1C31929500F09595 /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
+		64631E501C31929500F09595 /* qrCode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@3x.png"; sourceTree = "<group>"; };
+		64631E531C31933300F09595 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = SOURCE_ROOT; };
+		64631E541C31933300F09595 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = SOURCE_ROOT; };
+		64631E561C31933400F09595 /* TypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeItem.h; sourceTree = SOURCE_ROOT; };
+		64631E571C31933400F09595 /* TypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeItem.m; sourceTree = SOURCE_ROOT; };
+		64631E591C31933400F09595 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = SOURCE_ROOT; };
+		64631E5A1C31933400F09595 /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = SOURCE_ROOT; };
 		6464FCC31C29B55A0009C040 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
 		6464FCC41C29B55A0009C040 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		6464FCC71C29BBDA0009C040 /* CustomCellPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellPickerView.h; sourceTree = "<group>"; };
 		6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellPickerView.m; sourceTree = "<group>"; };
 		6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellPickerView.xib; sourceTree = "<group>"; };
-		64A9DC2A1C302CAB0022CF83 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = SOURCE_ROOT; };
-		64A9DC2B1C302CAB0022CF83 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = SOURCE_ROOT; };
-		64A9DC2D1C302CAC0022CF83 /* TypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeItem.h; sourceTree = SOURCE_ROOT; };
-		64A9DC2E1C302CAC0022CF83 /* TypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeItem.m; sourceTree = SOURCE_ROOT; };
-		64A9DC301C302CAC0022CF83 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = SOURCE_ROOT; };
-		64A9DC311C302CAC0022CF83 /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = SOURCE_ROOT; };
 		713A5350A73855817536F6E6 /* Pods-StoreManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreManager/Pods-StoreManager.debug.xcconfig"; sourceTree = "<group>"; };
 		FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellDatePicker.h; sourceTree = "<group>"; };
 		FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellDatePicker.m; sourceTree = "<group>"; };
@@ -465,6 +469,8 @@
 		645A15CD1C284C170094802A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64631E4F1C31929500F09595 /* qrCode@2x.png */,
+				64631E501C31929500F09595 /* qrCode@3x.png */,
 				645A15CE1C284C170094802A /* reveal-icon.png */,
 				645A15CF1C284C170094802A /* reveal-icon@2x.png */,
 				645A15D01C284C170094802A /* UITableContract.png */,
@@ -576,12 +582,12 @@
 		645FCE2C1C2BFADB00A9C69E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				64A9DC301C302CAC0022CF83 /* Base.h */,
-				64A9DC311C302CAC0022CF83 /* Base.m */,
-				64A9DC2D1C302CAC0022CF83 /* TypeItem.h */,
-				64A9DC2E1C302CAC0022CF83 /* TypeItem.m */,
-				64A9DC2A1C302CAB0022CF83 /* Item.h */,
-				64A9DC2B1C302CAB0022CF83 /* Item.m */,
+				64631E591C31933400F09595 /* Base.h */,
+				64631E5A1C31933400F09595 /* Base.m */,
+				64631E561C31933400F09595 /* TypeItem.h */,
+				64631E571C31933400F09595 /* TypeItem.m */,
+				64631E531C31933300F09595 /* Item.h */,
+				64631E541C31933300F09595 /* Item.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -743,10 +749,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				645A15BC1C284BFB0094802A /* VCRoot.xib in Resources */,
+				64631E521C31929500F09595 /* qrCode@3x.png in Resources */,
 				645A15DF1C2851B90094802A /* VCItems.xib in Resources */,
 				FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */,
 				645A156B1C284B150094802A /* LaunchScreen.xib in Resources */,
 				645A16041C286BF30094802A /* CustomTextRightLeft.xib in Resources */,
+				64631E511C31929500F09595 /* qrCode@2x.png in Resources */,
 				645A15BA1C284BFB0094802A /* VCMenu.xib in Resources */,
 				645A15B11C284BFB0094802A /* CustomCellDropDownMenu.xib in Resources */,
 				645A15D51C284C170094802A /* reveal-icon@2x.png in Resources */,
@@ -830,7 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				645A15FD1C2862F30094802A /* CustomCellPhoto.m in Sources */,
-				64A9DC2F1C302CAC0022CF83 /* TypeItem.m in Sources */,
+				64631E581C31933400F09595 /* TypeItem.m in Sources */,
 				645A15B01C284BFB0094802A /* CustomCellDropDownMenu.m in Sources */,
 				645A15B91C284BFB0094802A /* VCMenu.m in Sources */,
 				645A15B61C284BFB0094802A /* CustomAnimationController.m in Sources */,
@@ -852,12 +860,12 @@
 				645A15DE1C2851B90094802A /* VCItems.m in Sources */,
 				645A15B71C284BFB0094802A /* SWRevealViewController.m in Sources */,
 				645A15BD1C284BFB0094802A /* VCGroups.m in Sources */,
-				64A9DC2C1C302CAB0022CF83 /* Item.m in Sources */,
+				64631E551C31933300F09595 /* Item.m in Sources */,
 				645FCE101C2BF5F900A9C69E /* VCTypeItem.m in Sources */,
 				645FCE211C2BF9B700A9C69E /* TextRLModel.m in Sources */,
 				645A15CC1C284C0C0094802A /* LocalizeHelper.m in Sources */,
 				645A15AD1C284BFB0094802A /* Common.m in Sources */,
-				64A9DC321C302CAC0022CF83 /* Base.m in Sources */,
+				64631E5B1C31933400F09595 /* Base.m in Sources */,
 				6464FCC51C29B55A0009C040 /* UIActionSheet+Blocks.m in Sources */,
 				645A155A1C284B150094802A /* main.m in Sources */,
 				645FCE041C2BEF6900A9C69E /* VCPickerView.m in Sources */,

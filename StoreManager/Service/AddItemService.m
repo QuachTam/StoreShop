@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         if (uuid) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uuid=%@", uuid];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"syncID=%@", uuid];
             Item *entity = [Item MR_findFirstWithPredicate:predicate inContext:[NSManagedObjectContext MR_defaultContext]];
             if (entity) {
                 self.modelItem = [[ModelItem alloc] initWithEntity:entity];

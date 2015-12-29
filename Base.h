@@ -2,7 +2,7 @@
 //  Base.h
 //  StoreManager
 //
-//  Created by ATam on 12/27/15.
+//  Created by ATam on 12/28/15.
 //  Copyright (c) 2015 ATam. All rights reserved.
 //
 
@@ -14,6 +14,6 @@
 
 @property (nonatomic, retain) NSDate * dateCreate;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * syncID;
 
 @end

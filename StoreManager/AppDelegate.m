@@ -27,7 +27,7 @@ static NSString *storeName = @"StoreManager.sqlite";
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         for (NSInteger index=0; index<10; index++) {
             Item *entity = [Item MR_createEntityInContext:localContext];
-            entity.uuid = [[NSUUID UUID].UUIDString lowercaseString];
+            entity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
             entity.name = [NSString stringWithFormat:@"%ld name", index];
             entity.dateCreate = [NSDate date];
             entity.moneyOutput = @"200";
@@ -38,7 +38,7 @@ static NSString *storeName = @"StoreManager.sqlite";
                 entity.isSell = @(1);
             }
             TypeItem *typeEntity = [TypeItem MR_createEntityInContext:localContext];
-            typeEntity.uuid = [[NSUUID UUID].UUIDString lowercaseString];
+            typeEntity.syncID = [[NSUUID UUID].UUIDString lowercaseString];
             typeEntity.name = [NSString stringWithFormat:@"%ld type", (long)index];
             
             [entity setTypeItem:typeEntity];

@@ -2,7 +2,7 @@
 //  Base.m
 //  StoreManager
 //
-//  Created by ATam on 12/27/15.
+//  Created by ATam on 12/28/15.
 //  Copyright (c) 2015 ATam. All rights reserved.
 //
 
@@ -13,6 +13,6 @@
 
 @dynamic dateCreate;
 @dynamic name;
-@dynamic uuid;
+@dynamic syncID;
 
 @end
