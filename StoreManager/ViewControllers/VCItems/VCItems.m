@@ -61,12 +61,14 @@ static NSString *stringIdentify = @"CustomCellItem";
 
 - (void)rightButtonNavicationBar {
     UIButton *buttonQrcode = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buttonQrcode setFrame:CGRectMake(0, 0, 25, 25)];
+    [buttonQrcode setFrame:CGRectMake(0, 0, 23, 23)];
     [buttonQrcode setImage:[UIImage imageNamed:@"qrCode"] forState:UIControlStateNormal];
     [buttonQrcode addTarget:self action:@selector(actionQRCode) forControlEvents:UIControlEventTouchUpInside];
     
+    UIBarButtonItem *barAddItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
+    
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithCustomView:buttonQrcode];
-    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
+    self.navigationItem.rightBarButtonItems = @[barAddItem, rightRevealButtonItem];
 }
 
 - (void)actionQRCode {
@@ -103,14 +105,14 @@ static NSString *stringIdentify = @"CustomCellItem";
         
         if (modelItem.entity) {
             if ([modelItem.entity.isSell boolValue]) {
-                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:@"Đã bán" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:@"Đã bán" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
                 }];
             }else{
-                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:[NSString stringWithFormat:@"Giá bán: %@", modelItem.moneyOutput] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Bán"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:[NSString stringWithFormat:@"Giá bán: %@", modelItem.moneyOutput] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Bán"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
                     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
                     if ([buttonTitle isEqualToString:@"Bán"]) {
                         [self.service updateItemForSell:modelItem success:^{
-                            [UIAlertView showWithTitle:nil message:@"Bán thành công" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                            [UIAlertView showWithTitle:nil message:@"Bán thành công" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
                             }];
                         }];
                     }
@@ -130,25 +132,6 @@ static NSString *stringIdentify = @"CustomCellItem";
 }
 
 - (void)actionNewItem {
-    
-    UIGraphicsBeginImageContext(self.tbView.contentSize);
-    [self.tbView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    [self.tbView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    int rows = [self.tbView numberOfRowsInSection:0];
-    int numberofRowsInView = 4;
-    for (int i =0; i < rows/numberofRowsInView; i++) {
-        [self.tbView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(i+1)*numberofRowsInView inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        [self.tbView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        
-    }
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIImageView *myImage=[[UIImageView alloc]initWithImage:image];
-    UIGraphicsEndImageContext();
-    
-    
-    [self createPDFfromUIViews:myImage saveToDocumentsWithFileName:@"PDF Name"];
-    
     VCAddItem *newItem = [[VCAddItem alloc] init];
     [self.navigationController pushViewController:newItem animated:YES];
 }
@@ -225,6 +208,9 @@ static NSString *stringIdentify = @"CustomCellItem";
     // some code for initializing cell content
     ModelItem *model = [self.service fetchModelAtIndexPath:indexPath];
     cell.labelName.text = model.modelTypeItem.name;
+    cell.labelValueMoneyInput.text = model.moneyInput;
+    cell.labelValueMoneyOutput.text = model.moneyOutput;
+    
     if ([model.isSell boolValue]) {
         cell.labelStatus.text = @"Đã bán";
         [cell.labelStatus setTextColor:[UIColor redColor]];

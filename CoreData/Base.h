@@ -2,21 +2,18 @@
 //  Base.h
 //  StoreManager
 //
-//  Created by Tamqn on 12/29/15.
-//  Copyright © 2015 ATam. All rights reserved.
+//  Created by ATam on 12/29/15.
+//  Copyright (c) 2015 ATam. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface Base : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+@property (nonatomic, retain) NSDate * dateCreate;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * syncID;
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "Base+CoreDataProperties.h"

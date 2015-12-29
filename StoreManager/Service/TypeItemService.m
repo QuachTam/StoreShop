@@ -26,4 +26,26 @@
     }
 }
 
+- (void)saveTypeItem:(ModelTypeItem*)modelTypeItem success:(void(^)(void))success {
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        TypeItem *entity = [TypeItem MR_createEntityInContext:localContext];
+        entity.syncID = modelTypeItem.syncID;
+        entity.name = modelTypeItem.name;
+    }];
+    if (success) {
+        success();
+    }
+}
+
+- (void)deleteItem:(ModelTypeItem*)modelType success:(void(^)(void))success {
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"syncID=%@", modelType.syncID];
+        TypeItem *entity = [TypeItem MR_findFirstWithPredicate:predicate inContext:localContext];
+        [entity MR_deleteEntityInContext:localContext];
+    }];
+    if (success) {
+        success();
+    }
+}
+
 @end

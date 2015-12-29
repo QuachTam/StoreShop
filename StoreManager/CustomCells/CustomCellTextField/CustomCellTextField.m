@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.textField.delegate = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeTextField:) name:UITextFieldTextDidChangeNotification object:nil];
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,13 +22,12 @@
     // Configure the view for the selected state
 }
 
-- (void)didChangeTextField:(NSNotification*)notification {
-    UITextField *textField = notification.object;
-    self.model.text = textField.text;
+- (void)textFieldDidChange:(UITextField*)textField{
+    self.model.value = textField.text;
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
-    self.model.text = nil;
+    self.model.value = @"";
     return YES;
 }
 @end

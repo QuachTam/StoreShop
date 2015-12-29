@@ -10,9 +10,10 @@
 #import "CustomCellBackground.h"
 #import "CustomCellDropDownMenu.h"
 #import "TypeItemService.h"
+#import "UIAlertView+Blocks.h"
 
 static NSString *stringIdentify = @"CustomCellDropDownMenu";
-@interface VCTypeItem ()<UITextFieldDelegate>
+@interface VCTypeItem ()<UITextFieldDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSArray *datas;
 @property (nonatomic, strong) TypeItemService *service;
 @end
@@ -32,7 +33,40 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
         [week.tbView reloadData];
     };
     [self.service fetchTypeItem];
+    [self initLongPressGesture];
 }
+
+- (void)initLongPressGesture {
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1; //seconds
+    lpgr.delegate = self;
+    [self.tbView addGestureRecognizer:lpgr];
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.tbView];
+    
+    NSIndexPath *indexPath = [self.tbView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    }
+    else {
+        if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+            // I am not sure why I need to cast here. But it seems to be alright.
+            ModelTypeItem *typeItem = [self.datas objectAtIndex:indexPath.row];
+            [UIAlertView showWithTitle:nil message:[NSString stringWithFormat:@"Bạn có muốn xoá: %@ ?", typeItem.name] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
+                NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+                if ([buttonTitle isEqualToString:@"Đồng ý"]) {
+                    [self.service deleteItem:[self.datas objectAtIndex:indexPath.row] success:^{
+                        [self.service fetchTypeItem];
+                    }];
+                }
+            }];
+        }
+    }
+}
+
 
 - (void)rightButtonNavicationBar {
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
@@ -52,7 +86,11 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 }
 
 - (void)saveNewTypeItem:(UITextField *)textField {
-    
+    ModelTypeItem *model = [[ModelTypeItem alloc] init];
+    model.name = textField.text;
+    [self.service saveTypeItem:model success:^{
+        [self.service fetchTypeItem];
+    }];
 }
 
 #pragma mark - tableView

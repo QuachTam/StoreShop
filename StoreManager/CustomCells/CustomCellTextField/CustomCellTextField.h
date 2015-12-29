@@ -13,5 +13,5 @@
 @interface CustomCellTextField : CustomCellCommon <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelText;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic, strong) TextFieldModel *model;
+@property (nonatomic, readwrite) TextFieldModel *model;
 @end

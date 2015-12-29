@@ -62,14 +62,9 @@
         modelOutPut.text = @"Bán ra";
         modelOutPut.value = self.modelItem.moneyOutput;
         modelOutPut.type = ModelTextField;
-        modelOutPut.modelTextFieldType = ModelTextFieldInput;
+        modelOutPut.modelTextFieldType = ModelTextFieldOutput;
         modelOutPut.keyBoardType = UIKeyboardTypeDefault;
         [array addObject:modelOutPut];
-        
-        PhotoModel *photoModel = [[PhotoModel alloc] init];
-        photoModel.text = @"Hình ảnh";
-        photoModel.type = ModelPhoto;
-        [array addObject:photoModel];
         
         _modelList = [array copy];
     }
@@ -78,18 +73,23 @@
 
 - (void)saveItem:(ModelItem*)itemModel qrcode:(NSString*)qrcode success:(void(^)(void))success {
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        Item *newEntity = [Item MR_createEntityInContext:localContext];
+        NSPredicate *predicateItem = [NSPredicate predicateWithFormat:@"syncID=%@", itemModel.syncID];
+        Item *newEntity = [Item MR_findFirstWithPredicate:predicateItem inContext:localContext];
+        if (!newEntity) {
+            newEntity = [Item MR_createEntityInContext:localContext];
+        }
         newEntity.syncID = itemModel.syncID;
         newEntity.dateInput = itemModel.dateCreate;
         newEntity.dateUpdate = itemModel.dateUpdate;
         newEntity.isSell  = itemModel.isSell;
         newEntity.moneyInput = itemModel.moneyInput;
         newEntity.moneyOutput = itemModel.moneyOutput;
-        
-        Qrcode *qrCodeEntity = [Qrcode MR_createEntityInContext:localContext];
-        qrCodeEntity.name = qrcode;
-        
-        newEntity.qrCode = qrCodeEntity;
+        newEntity.typeItem = nil;
+        if (qrcode) {
+            Qrcode *qrCodeEntity = [Qrcode MR_createEntityInContext:localContext];
+            qrCodeEntity.name = qrcode;
+            newEntity.qrCode = qrCodeEntity;
+        }
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"syncID=%@", itemModel.modelTypeItem.syncID];
         TypeItem *typeEntity = [TypeItem MR_findFirstWithPredicate:predicate inContext:localContext];

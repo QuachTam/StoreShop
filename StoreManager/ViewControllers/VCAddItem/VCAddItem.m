@@ -56,6 +56,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
 }
 
 - (void)saveNewItem {
+    [self.view endEditing:YES];
     TextRLModel *modelType = [self.service.modelList objectAtIndex:0];
     TextRLModel *modelDate = [self.service.modelList objectAtIndex:1];
     TextFieldModel *modelInput = [self.service.modelList objectAtIndex:2];
@@ -159,8 +160,8 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
                 
                 TextRLModel *baseModel = [self.service.modelList objectAtIndex:indexPath.row];
                 baseModel.textRight = modelType.name;
-                CustomTextRightLeft *cell = [tableView cellForRowAtIndexPath:indexPath];
-                cell.labelRight.text = baseModel.textRight;
+                CustomTextRightLeft *cellCurrent = (CustomTextRightLeft*)[tableView cellForRowAtIndexPath:indexPath];
+                cellCurrent.labelRight.text = baseModel.textRight;
             };
             [self.navigationController pushViewController:typeItems animated:YES];
         }
@@ -193,6 +194,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     if (baseModel.value) {
         cell.textField.text = baseModel.value;
     }
+    cell.textField.placeholder = @"Đơn giá 1000";
     cell.model = baseModel;
 }
 

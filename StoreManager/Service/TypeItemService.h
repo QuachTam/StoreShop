@@ -16,4 +16,6 @@
 @property (nonatomic, copy, readwrite) void(^didFinshFetchData)();
 
 - (void)fetchTypeItem;
+- (void)saveTypeItem:(ModelTypeItem*)modelTypeItem success:(void(^)(void))success;
+- (void)deleteItem:(ModelTypeItem*)modelType success:(void(^)(void))success;
 @end

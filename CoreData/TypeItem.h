@@ -2,23 +2,26 @@
 //  TypeItem.h
 //  StoreManager
 //
-//  Created by Tamqn on 12/29/15.
-//  Copyright © 2015 ATam. All rights reserved.
+//  Created by ATam on 12/29/15.
+//  Copyright (c) 2015 ATam. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "Base.h"
 
 @class Item;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TypeItem : Base
 
-// Insert code here to declare functionality of your managed object subclass
-
+@property (nonatomic, retain) NSSet *item;
 @end
 
-NS_ASSUME_NONNULL_END
+@interface TypeItem (CoreDataGeneratedAccessors)
 
-#import "TypeItem+CoreDataProperties.h"
+- (void)addItemObject:(Item *)value;
+- (void)removeItemObject:(Item *)value;
+- (void)addItem:(NSSet *)values;
+- (void)removeItem:(NSSet *)values;
+
+@end
