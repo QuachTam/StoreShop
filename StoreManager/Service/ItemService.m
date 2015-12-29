@@ -7,6 +7,7 @@
 //
 
 #import "ItemService.h"
+#import "Qrcode.h"
 
 @implementation ItemService
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -45,12 +46,6 @@
 
     
     return _fetchedResultsController;
-}
-
-- (id)fetchModelAtIndexPath:(NSIndexPath*)indexPath {
-    id object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    ModelItem *model = [[ModelItem alloc] initWithEntity:object];
-    return model;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -106,6 +101,39 @@
     if (self.endUpdates) {
         self.endUpdates();
     }
+}
+
+- (id)fetchModelAtIndexPath:(NSIndexPath*)indexPath {
+    id object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    ModelItem *model = [[ModelItem alloc] initWithEntity:object];
+    return model;
+}
+
+- (id)findModelWithQrcode:(NSString*)qrcode {
+    Qrcode *entityCurrent = nil;
+    NSArray *qrcodeEntitys = [Qrcode MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
+    for (NSInteger index=0; index<qrcodeEntitys.count; index++) {
+        Qrcode *entity = [qrcodeEntitys objectAtIndex:index];
+        if ([entity.name isEqualToString:qrcode]) {
+            entityCurrent = entity;
+            break;
+        }
+    }
+    ModelItem *model = nil;
+    if (entityCurrent) {
+        model = [[ModelItem alloc] initWithEntity:entityCurrent.item];
+    }else{
+        model = [[ModelItem alloc] init];
+    }
+    return model;
+}
+
+- (void)updateItemForSell:(ModelItem*)item success:(void(^)(void))success{
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        NSPredicate *prediate = [NSPredicate predicateWithFormat:@"syncID=%@", item.syncID];
+        Item *entity = [Item MR_findFirstWithPredicate:prediate inContext:localContext];
+        entity.isSell = @(1);
+    }];
 }
 
 @end

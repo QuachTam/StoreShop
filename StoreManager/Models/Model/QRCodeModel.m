@@ -1,17 +1,17 @@
 //
-//  ModelTypeItem.m
+//  QRCodeModel.m
 //  StoreManager
 //
-//  Created by ATam on 12/24/15.
-//  Copyright (c) 2015 ATam. All rights reserved.
+//  Created by Tamqn on 12/29/15.
+//  Copyright © 2015 ATam. All rights reserved.
 //
 
-#import "ModelTypeItem.h"
+#import "QRCodeModel.h"
 
-@implementation ModelTypeItem
+@implementation QRCodeModel
 @synthesize name = _name;
 
-- (instancetype)initWithEntity:(TypeItem *)entity
+- (instancetype)initWithEntity:(Qrcode *)entity
 {
     if (self = [super init]) {
         _entity = entity;

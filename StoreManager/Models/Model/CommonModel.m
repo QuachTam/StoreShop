@@ -12,7 +12,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.uuid = [[NSUUID UUID].UUIDString lowercaseString];
+        self.syncID = [[NSUUID UUID].UUIDString lowercaseString];
     }
     return self;
 }
@@ -20,7 +20,7 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     CommonModel * object = [CommonModel new];
-    object.uuid = [self.uuid copyWithZone:zone];
+    object.syncID = [self.syncID copyWithZone:zone];
     
     return object;
 }

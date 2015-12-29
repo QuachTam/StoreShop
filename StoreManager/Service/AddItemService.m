@@ -43,16 +43,6 @@
         }
         [array addObject:modelType];
         
-        TextFieldModel *modelNumber = [[TextFieldModel alloc] init];
-        modelNumber.text = @"Số lượng";
-        modelNumber.value = @"1";
-        modelNumber.type = ModelTextField;
-        modelNumber.modelTextFieldType = ModelTextFieldType;
-        modelNumber.keyBoardType = UIKeyboardTypeNumberPad;
-        if (!self.modelItem.entity) {
-            [array addObject:modelNumber];
-        }
-        
         TextRLModel *modelDate = [[TextRLModel alloc] init];
         modelDate.textLeft = @"Ngày nhập hàng";
         modelDate.textRight = [NSDate stringFromDate:self.modelItem.dateCreate withFormat:@"dd-MM-yyy HH:mm"];
@@ -86,5 +76,28 @@
     return _modelList;
 }
 
-
+- (void)saveItem:(ModelItem*)itemModel qrcode:(NSString*)qrcode success:(void(^)(void))success {
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        Item *newEntity = [Item MR_createEntityInContext:localContext];
+        newEntity.syncID = itemModel.syncID;
+        newEntity.dateInput = itemModel.dateCreate;
+        newEntity.dateUpdate = itemModel.dateUpdate;
+        newEntity.isSell  = itemModel.isSell;
+        newEntity.moneyInput = itemModel.moneyInput;
+        newEntity.moneyOutput = itemModel.moneyOutput;
+        
+        Qrcode *qrCodeEntity = [Qrcode MR_createEntityInContext:localContext];
+        qrCodeEntity.name = qrcode;
+        
+        newEntity.qrCode = qrCodeEntity;
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"syncID=%@", itemModel.modelTypeItem.syncID];
+        TypeItem *typeEntity = [TypeItem MR_findFirstWithPredicate:predicate inContext:localContext];
+        [typeEntity addItemObject:newEntity];
+        
+    }];
+    if (success) {
+        success();
+    }
+}
 @end

@@ -9,7 +9,7 @@
 #import "ModelItem.h"
 
 @implementation ModelItem
-@synthesize uuid = _uuid;
+@synthesize syncID = _syncID;
 @synthesize name = _name;
 @synthesize dateCreate = _dateCreate;
 
@@ -17,7 +17,7 @@
 {
     if (self = [super init]) {
         _entity = entity;
-        self.uuid = entity.uuid;
+        self.syncID = entity.syncID;
     }
     return self;
 }
@@ -58,7 +58,7 @@
 }
 
 - (NSNumber *)isSell {
-    return self.entity.isSell;
+    return self.entity ? self.entity.isSell : @(0);
 }
 
 - (NSString *)moneyInput {
@@ -85,4 +85,16 @@
     }
     return _modelTypeItem;
 }
+
+- (QRCodeModel *)modelQRCode {
+    if (!_modelQRCode) {
+        if (self.entity.qrCode) {
+            _modelQRCode = [[QRCodeModel alloc] initWithEntity:self.entity.qrCode];
+        }else{
+            _modelQRCode = [[QRCodeModel alloc] init];
+        }
+    }
+    return _modelQRCode;
+}
+
 @end

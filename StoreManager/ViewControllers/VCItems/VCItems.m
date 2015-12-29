@@ -11,6 +11,7 @@
 #import "CustomCellItem.h"
 #import "CustomCellBackground.h"
 #import "ItemService.h"
+#import "UIAlertView+Blocks.h"
 
 static NSString *stringIdentify = @"CustomCellItem";
 @interface VCItems ()
@@ -59,14 +60,118 @@ static NSString *stringIdentify = @"CustomCellItem";
 }
 
 - (void)rightButtonNavicationBar {
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
+    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionQRCode)];
     
     self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
 }
 
+- (void)actionQRCode {
+    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+        static QRCodeReaderViewController *vc = nil;
+        static dispatch_once_t onceToken;
+        
+        dispatch_once(&onceToken, ^{
+            QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+            vc                   = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+            vc.modalPresentationStyle = UIModalPresentationFormSheet;
+        });
+        vc.delegate = self;
+        
+        [vc setCompletionWithBlock:^(NSString *resultAsString) {
+            NSLog(@"Completion with result: %@", resultAsString);
+        }];
+        
+        [self presentViewController:vc animated:YES completion:NULL];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        ModelItem *modelItem = [self.service findModelWithQrcode:result];
+        
+        if (modelItem.entity) {
+            if ([modelItem.entity.isSell boolValue]) {
+                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:@"Đã bán" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                }];
+            }else{
+                [UIAlertView showWithTitle:modelItem.modelTypeItem.name message:[NSString stringWithFormat:@"Giá bán: %@", modelItem.moneyOutput] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Bán"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+                    if ([buttonTitle isEqualToString:@"Bán"]) {
+                        [self.service updateItemForSell:modelItem success:^{
+                            [UIAlertView showWithTitle:nil message:@"Bán thành công" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                            }];
+                        }];
+                    }
+                }];
+            }
+        }else {
+            VCAddItem *newItem = [[VCAddItem alloc] init];
+            newItem.qrcode = result;
+            [self.navigationController pushViewController:newItem animated:YES];
+        }
+    }];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)actionNewItem {
+    
+    UIGraphicsBeginImageContext(self.tbView.contentSize);
+    [self.tbView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    [self.tbView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    int rows = [self.tbView numberOfRowsInSection:0];
+    int numberofRowsInView = 4;
+    for (int i =0; i < rows/numberofRowsInView; i++) {
+        [self.tbView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(i+1)*numberofRowsInView inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        [self.tbView.layer renderInContext:UIGraphicsGetCurrentContext()];
+        
+    }
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIImageView *myImage=[[UIImageView alloc]initWithImage:image];
+    UIGraphicsEndImageContext();
+    
+    
+    [self createPDFfromUIViews:myImage saveToDocumentsWithFileName:@"PDF Name"];
+    
     VCAddItem *newItem = [[VCAddItem alloc] init];
     [self.navigationController pushViewController:newItem animated:YES];
+}
+
+- (void)createPDFfromUIViews:(UIView *)myImage saveToDocumentsWithFileName:(NSString *)string
+{
+    NSMutableData *pdfData = [NSMutableData data];
+    
+    UIGraphicsBeginPDFContextToData(pdfData, myImage.bounds, nil);
+    UIGraphicsBeginPDFPage();
+    CGContextRef pdfContext = UIGraphicsGetCurrentContext();
+    
+    
+    // draws rect to the view and thus this is captured by UIGraphicsBeginPDFContextToData
+    
+    [myImage.layer renderInContext:pdfContext];
+    
+    // remove PDF rendering context
+    UIGraphicsEndPDFContext();
+    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    
+    NSString* documentDirectory = [documentDirectories objectAtIndex:0];
+    NSString* documentDirectoryFilename = [documentDirectory stringByAppendingPathComponent:string];
+    
+    NSLog(@"%@",documentDirectoryFilename);
+    [pdfData writeToFile:documentDirectoryFilename atomically:YES];
+    
 }
 
 - (void)registerTableViewCell {
@@ -134,7 +239,7 @@ static NSString *stringIdentify = @"CustomCellItem";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ModelItem * model = [self.service fetchModelAtIndexPath:indexPath];
     VCAddItem *newItem = [[VCAddItem alloc] init];
-    newItem.uuidItem = model.uuid;
+    newItem.uuidItem = model.syncID;
     [self.navigationController pushViewController:newItem animated:YES];
 }
 
