@@ -11,6 +11,7 @@
 #import "CustomCellBackground.h"
 #import "VCItems.h"
 #import "VCGroups.h"
+#import "VCShopping.h"
 
 static NSString *stringIdentify = @"CustomCellDropDownMenu";
 @interface VCMenu ()<UITableViewDataSource, UITableViewDelegate>{
@@ -82,7 +83,7 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
             newFrontController = [[VCItems alloc] init];
             break;
         case 1:
-            newFrontController = [[VCGroups alloc] init];
+            newFrontController = [[VCShopping alloc] init];
             break;
         default:
             break;
@@ -117,7 +118,7 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 
 - (NSArray *)datas {
     if (!_datas) {
-        _datas =@[@"Các loại mặt hàng", @"nhóm mặt hàng", @"Loại mặt hàng", @"Thống kê", @"Thông tin"];
+        _datas =@[@"Kho hàng", @"Rỏ hàng", @"Thống kê", @"Thông tin"];
     }
     return _datas;
 }

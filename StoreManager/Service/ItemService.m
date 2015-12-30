@@ -93,6 +93,12 @@
             }
             break;
         case NSFetchedResultsChangeMove:
+            if (self.deleteRowsAtIndexPaths) {
+                self.deleteRowsAtIndexPaths(@[indexPath]);
+            }
+            if (self.insertRowsAtIndexPaths) {
+                self.insertRowsAtIndexPaths(@[newIndexPath]);
+            }
             break;
     }
 }

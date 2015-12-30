@@ -219,10 +219,10 @@ static NSString *stringIdentify = @"CustomCellItem";
         [cell.labelStatus setTextColor:[UIColor greenColor]];
     }
     if (model.dateInput) {
-        cell.labelValueDateInput.text = [NSDate stringFromDate:model.dateInput];
+        cell.labelValueDateInput.text = [NSDate stringFromDate:model.dateInput withFormat:@"dd-MM-yyyy HH:mm"];
     }
     if (model.dateOutput) {
-        cell.labelValueDateOutput.text = [NSDate stringFromDate:model.dateOutput];
+        cell.labelValueDateOutput.text = [NSDate stringFromDate:model.dateOutput withFormat:@"dd-MM-yyyy HH:mm"];
     }
 }
 

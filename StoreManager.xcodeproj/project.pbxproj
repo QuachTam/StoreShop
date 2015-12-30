@@ -90,6 +90,8 @@
 		FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */; };
 		FBC696CD1C33720100A8FDBE /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CB1C33720100A8FDBE /* qrCode@2x.png */; };
 		FBC696CE1C33720100A8FDBE /* qrCode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CC1C33720100A8FDBE /* qrCode@3x.png */; };
+		FBF7B2611C33CF6C009F7788 /* VCShopping.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF7B25F1C33CF6C009F7788 /* VCShopping.m */; };
+		FBF7B2621C33CF6C009F7788 /* VCShopping.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF7B2601C33CF6C009F7788 /* VCShopping.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +252,9 @@
 		FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VC.m"; sourceTree = "<group>"; };
 		FBC696CB1C33720100A8FDBE /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
 		FBC696CC1C33720100A8FDBE /* qrCode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@3x.png"; sourceTree = "<group>"; };
+		FBF7B25E1C33CF6C009F7788 /* VCShopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCShopping.h; sourceTree = "<group>"; };
+		FBF7B25F1C33CF6C009F7788 /* VCShopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCShopping.m; sourceTree = "<group>"; };
+		FBF7B2601C33CF6C009F7788 /* VCShopping.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCShopping.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,15 +411,16 @@
 		645A15971C284BFB0094802A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				645A15981C284BFB0094802A /* SWRevealViewController */,
+				645A15A41C284BFB0094802A /* VCRoot */,
+				645A15A01C284BFB0094802A /* VCMenu */,
 				645FCE0C1C2BF5ED00A9C69E /* VCTypeItem */,
 				645FCE001C2BEF5800A9C69E /* VCPickerView */,
 				645A15E01C28570F0094802A /* VCAddItem */,
 				645A15DA1C2851AB0094802A /* VCItems */,
-				645A15981C284BFB0094802A /* SWRevealViewController */,
 				645A159D1C284BFB0094802A /* VCBase */,
-				645A15A01C284BFB0094802A /* VCMenu */,
-				645A15A41C284BFB0094802A /* VCRoot */,
-				645A15A81C284BFB0094802A /* VCVideos */,
+				FBF7B25D1C33CF56009F7788 /* VCShopping */,
+				645A15A81C284BFB0094802A /* VCGroups */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -459,13 +465,14 @@
 			path = VCRoot;
 			sourceTree = "<group>";
 		};
-		645A15A81C284BFB0094802A /* VCVideos */ = {
+		645A15A81C284BFB0094802A /* VCGroups */ = {
 			isa = PBXGroup;
 			children = (
 				645A15A91C284BFB0094802A /* VCGroups.h */,
 				645A15AA1C284BFB0094802A /* VCGroups.m */,
 				645A15AB1C284BFB0094802A /* VCGroups.xib */,
 			);
+			name = VCGroups;
 			path = VCVideos;
 			sourceTree = "<group>";
 		};
@@ -720,6 +727,17 @@
 			path = QRCodeReaderViewController;
 			sourceTree = "<group>";
 		};
+		FBF7B25D1C33CF56009F7788 /* VCShopping */ = {
+			isa = PBXGroup;
+			children = (
+				FBF7B25E1C33CF6C009F7788 /* VCShopping.h */,
+				FBF7B25F1C33CF6C009F7788 /* VCShopping.m */,
+				FBF7B2601C33CF6C009F7788 /* VCShopping.xib */,
+			);
+			name = VCShopping;
+			path = VCVideos/VCShopping;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -817,6 +835,7 @@
 				645A15D41C284C170094802A /* reveal-icon.png in Resources */,
 				645A15EB1C285B530094802A /* CustomCellTextField.xib in Resources */,
 				645FCE681C2C0F2000A9C69E /* CustomCellItem.xib in Resources */,
+				FBF7B2621C33CF6C009F7788 /* VCShopping.xib in Resources */,
 				645FCE111C2BF5F900A9C69E /* VCTypeItem.xib in Resources */,
 				645A15FE1C2862F30094802A /* CustomCellPhoto.xib in Resources */,
 				645A15D91C284C170094802A /* UITableExpand@2x.png in Resources */,
@@ -932,6 +951,7 @@
 				645A160A1C286DC30094802A /* NSDate+Helper.m in Sources */,
 				645FCE6B1C2C3ED800A9C69E /* AddItemService.m in Sources */,
 				645A15E41C28571D0094802A /* VCAddItem.m in Sources */,
+				FBF7B2611C33CF6C009F7788 /* VCShopping.m in Sources */,
 				6461C1E61C32D166008A1593 /* Item.m in Sources */,
 				6461C1E01C32D165008A1593 /* Base.m in Sources */,
 				FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */,
