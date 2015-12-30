@@ -87,6 +87,7 @@
 		FBC6967E1C3221E300A8FDBE /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696791C3221E300A8FDBE /* QRToggleTorchButton.m */; };
 		FBC696941C3230C000A8FDBE /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696931C3230C000A8FDBE /* UIAlertView+Blocks.m */; };
 		FBC696C11C32386200A8FDBE /* QRCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C01C32386200A8FDBE /* QRCodeModel.m */; };
+		FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +244,8 @@
 		FBC696931C3230C000A8FDBE /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		FBC696BF1C32386200A8FDBE /* QRCodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeModel.h; sourceTree = "<group>"; };
 		FBC696C01C32386200A8FDBE /* QRCodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeModel.m; sourceTree = "<group>"; };
+		FBC696C81C336D0200A8FDBE /* NSManagedObject+VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VC.h"; sourceTree = "<group>"; };
+		FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +339,8 @@
 		645A15801C284BFB0094802A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				FBC696C81C336D0200A8FDBE /* NSManagedObject+VC.h */,
+				FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */,
 				FBC696921C3230C000A8FDBE /* UIAlertView+Blocks.h */,
 				FBC696931C3230C000A8FDBE /* UIAlertView+Blocks.m */,
 				6464FCC31C29B55A0009C040 /* UIActionSheet+Blocks.h */,
@@ -921,6 +926,7 @@
 				645A15E41C28571D0094802A /* VCAddItem.m in Sources */,
 				6461C1E61C32D166008A1593 /* Item.m in Sources */,
 				6461C1E01C32D165008A1593 /* Base.m in Sources */,
+				FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */,
 				FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */,
 				645FCE611C2C006F00A9C69E /* ItemService.m in Sources */,
 				645A15AE1C284BFB0094802A /* QSCommon.m in Sources */,

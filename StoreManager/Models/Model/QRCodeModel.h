@@ -12,5 +12,6 @@
 @interface QRCodeModel : CommonModel
 
 @property (nonatomic, strong) Qrcode *entity;
+@property (nonatomic, strong) NSString *qrCode;
 - (instancetype)initWithEntity:(Qrcode *)entity;
 @end

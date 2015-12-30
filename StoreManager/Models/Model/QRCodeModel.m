@@ -20,6 +20,13 @@
     return self;
 }
 
+- (NSString *)qrCode {
+    if (!_qrCode) {
+        _qrCode = self.entity.name ? self.entity.name : @"";
+    }
+    return _qrCode;
+}
+
 - (NSString *)name {
     if (!_name) {
         _name = self.entity.name ? self.entity.name : @"";

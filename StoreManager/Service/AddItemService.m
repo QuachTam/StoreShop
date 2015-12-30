@@ -43,6 +43,16 @@
         }
         [array addObject:modelType];
         
+        if (!self.modelItem.modelQRCode.qrCode.length) {
+            TextFieldModel *modelCode = [[TextFieldModel alloc] init];
+            modelCode.text = @"Nhập mã sản phẩm";
+            modelCode.value = self.modelItem.moneyInput;
+            modelCode.type = ModelTextField;
+            modelCode.modelTextFieldType = ModelTextFieldCode;
+            modelCode.keyBoardType = UIKeyboardTypeDefault;
+            [array addObject:modelCode];
+        }
+        
         TextRLModel *modelDate = [[TextRLModel alloc] init];
         modelDate.textLeft = @"Ngày nhập hàng";
         modelDate.textRight = [NSDate stringFromDate:self.modelItem.dateCreate withFormat:@"dd-MM-yyy HH:mm"];
@@ -73,11 +83,7 @@
 
 - (void)saveItem:(ModelItem*)itemModel qrcode:(NSString*)qrcode success:(void(^)(void))success {
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        NSPredicate *predicateItem = [NSPredicate predicateWithFormat:@"syncID=%@", itemModel.syncID];
-        Item *newEntity = [Item MR_findFirstWithPredicate:predicateItem inContext:localContext];
-        if (!newEntity) {
-            newEntity = [Item MR_createEntityInContext:localContext];
-        }
+        Item *newEntity = [Item entityWithUuid:itemModel.syncID inContext:localContext];
         newEntity.syncID = itemModel.syncID;
         newEntity.dateInput = itemModel.dateCreate;
         newEntity.dateUpdate = itemModel.dateUpdate;
@@ -86,13 +92,12 @@
         newEntity.moneyOutput = itemModel.moneyOutput;
         newEntity.typeItem = nil;
         if (qrcode) {
-            Qrcode *qrCodeEntity = [Qrcode MR_createEntityInContext:localContext];
+            Qrcode *qrCodeEntity = [Qrcode entityWithUuid:itemModel.modelQRCode.syncID inContext:localContext];
             qrCodeEntity.name = qrcode;
             newEntity.qrCode = qrCodeEntity;
         }
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"syncID=%@", itemModel.modelTypeItem.syncID];
-        TypeItem *typeEntity = [TypeItem MR_findFirstWithPredicate:predicate inContext:localContext];
+        TypeItem *typeEntity = [TypeItem entityWithUuid:itemModel.modelTypeItem.syncID inContext:localContext];
         [typeEntity addItemObject:newEntity];
         
     }];

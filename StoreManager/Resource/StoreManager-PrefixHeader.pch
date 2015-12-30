@@ -16,6 +16,8 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "NSDate+Helper.h"
+    #import <MagicalRecord/MagicalRecord.h>
+    #import "NSManagedObject+VC.h"
     #define _LSFromTable NSLocalizedStringFromTable
     #define _LS NSLocalizedString
 #endif

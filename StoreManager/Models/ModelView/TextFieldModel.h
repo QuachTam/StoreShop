@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger, TypeModelTextField) {
     ModelTextFieldType,
     ModelTextFieldDate,
     ModelTextFieldInput,
-    ModelTextFieldOutput
+    ModelTextFieldOutput,
+    ModelTextFieldCode
 };
 @interface TextFieldModel : BaseModel
 @property (nonatomic, readwrite) TypeModelTextField modelTextFieldType;
