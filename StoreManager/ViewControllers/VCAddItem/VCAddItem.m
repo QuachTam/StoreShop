@@ -48,6 +48,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     [self registerTableViewCell];
     [self rightButtonNavicationBar];
     self.service = [[AddItemService alloc] initWithUuid:self.uuidItem];
+    self.service.qrCode = self.qrcode;
 }
 
 - (void)rightButtonNavicationBar {
@@ -55,12 +56,28 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
 }
 
+- (BaseModel *)findObjectWithType:(IndexOfObject)typeIndex {
+    BaseModel *object;
+    for (NSInteger index=0; index<self.service.modelList.count; index++) {
+        BaseModel *model = [self.service.modelList objectAtIndex:index];
+        if (model.indexOfObject==typeIndex) {
+            object = model;
+            break;
+        }
+    }
+    return object;
+}
+
 - (void)saveNewItem {
     [self.view endEditing:YES];
-    TextRLModel *modelType = [self.service.modelList objectAtIndex:0];
-    TextRLModel *modelDate = [self.service.modelList objectAtIndex:1];
-    TextFieldModel *modelInput = [self.service.modelList objectAtIndex:2];
-    TextFieldModel *modelOutPut = [self.service.modelList objectAtIndex:3];
+    TextRLModel *modelType = (TextRLModel*)[self findObjectWithType:ObjectType];
+    TextRLModel *modelDate = (TextRLModel*)[self findObjectWithType:ObjectDate];
+    TextFieldModel *modelInput = (TextFieldModel*)[self findObjectWithType:ObjectMoneyInput];
+    TextFieldModel *modelOutPut = (TextFieldModel*)[self findObjectWithType:ObjectMoneyOutput];
+    TextFieldModel *modelCode = (TextFieldModel*)[self findObjectWithType:ObjectCode];
+    if (modelCode && !self.qrcode) {
+        self.qrcode = modelCode.value;
+    }
     NSString *message = nil;
     if (!modelOutPut.text.length) {
         message = @"Mời nhập vào giá bán";
@@ -194,7 +211,7 @@ static NSString *customCellDatePicker = @"CustomCellDatePicker";
     if (baseModel.value) {
         cell.textField.text = baseModel.value;
     }
-    cell.textField.placeholder = @"Đơn giá 1000";
+    cell.textField.placeholder = baseModel.placeHolder;
     cell.model = baseModel;
 }
 

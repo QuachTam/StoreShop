@@ -88,6 +88,8 @@
 		FBC696941C3230C000A8FDBE /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696931C3230C000A8FDBE /* UIAlertView+Blocks.m */; };
 		FBC696C11C32386200A8FDBE /* QRCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C01C32386200A8FDBE /* QRCodeModel.m */; };
 		FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */; };
+		FBC696CD1C33720100A8FDBE /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CB1C33720100A8FDBE /* qrCode@2x.png */; };
+		FBC696CE1C33720100A8FDBE /* qrCode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CC1C33720100A8FDBE /* qrCode@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +248,8 @@
 		FBC696C01C32386200A8FDBE /* QRCodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeModel.m; sourceTree = "<group>"; };
 		FBC696C81C336D0200A8FDBE /* NSManagedObject+VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VC.h"; sourceTree = "<group>"; };
 		FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VC.m"; sourceTree = "<group>"; };
+		FBC696CB1C33720100A8FDBE /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
+		FBC696CC1C33720100A8FDBE /* qrCode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +502,8 @@
 		645A15CD1C284C170094802A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FBC696CB1C33720100A8FDBE /* qrCode@2x.png */,
+				FBC696CC1C33720100A8FDBE /* qrCode@3x.png */,
 				645A15CE1C284C170094802A /* reveal-icon.png */,
 				645A15CF1C284C170094802A /* reveal-icon@2x.png */,
 				645A15D01C284C170094802A /* UITableContract.png */,
@@ -798,10 +804,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				645A15BC1C284BFB0094802A /* VCRoot.xib in Resources */,
+				FBC696CE1C33720100A8FDBE /* qrCode@3x.png in Resources */,
 				645A15DF1C2851B90094802A /* VCItems.xib in Resources */,
 				FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */,
 				645A156B1C284B150094802A /* LaunchScreen.xib in Resources */,
 				645A16041C286BF30094802A /* CustomTextRightLeft.xib in Resources */,
+				FBC696CD1C33720100A8FDBE /* qrCode@2x.png in Resources */,
 				645A15BA1C284BFB0094802A /* VCMenu.xib in Resources */,
 				645A15B11C284BFB0094802A /* CustomCellDropDownMenu.xib in Resources */,
 				645A15D51C284C170094802A /* reveal-icon@2x.png in Resources */,

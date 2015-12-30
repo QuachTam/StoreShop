@@ -23,4 +23,5 @@ typedef NS_ENUM(NSInteger, TypeModelTextField) {
 @property (nonatomic, strong) NSDate *date;
 
 @property (nonatomic, readwrite) UIKeyboardType keyBoardType;
+@property (nonatomic, strong) NSString *placeHolder;
 @end

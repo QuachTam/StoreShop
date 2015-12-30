@@ -37,6 +37,7 @@
         modelType.textLeft = @"Loại mặt hàng";
         modelType.type = ModelTextRL;
         modelType.stringDefine = @"modelType";
+        modelType.indexOfObject = ObjectType;
         modelType.index = 0;
         if (self.modelItem.entity) {
             modelType.textRight = self.modelItem.modelTypeItem.name;
@@ -48,32 +49,40 @@
             modelCode.text = @"Nhập mã sản phẩm";
             modelCode.value = self.modelItem.moneyInput;
             modelCode.type = ModelTextField;
+            modelCode.indexOfObject = ObjectCode;
             modelCode.modelTextFieldType = ModelTextFieldCode;
+            modelCode.placeHolder = @"Mã sản phẩm";
             modelCode.keyBoardType = UIKeyboardTypeDefault;
             [array addObject:modelCode];
         }
         
         TextRLModel *modelDate = [[TextRLModel alloc] init];
         modelDate.textLeft = @"Ngày nhập hàng";
-        modelDate.textRight = [NSDate stringFromDate:self.modelItem.dateCreate withFormat:@"dd-MM-yyy HH:mm"];
+        modelDate.textRight = [NSDate stringFromDate:self.modelItem.dateCreate withFormat:@"dd-MM-yyyy HH:mm"];
         modelDate.type = ModelTextRL;
+        modelDate.indexOfObject = ObjectDate;
         modelDate.stringDefine = @"modelDate";
+        modelDate.date = self.modelItem.dateCreate;
         [array addObject:modelDate];
         
         TextFieldModel *modelInput = [[TextFieldModel alloc] init];
-        modelInput.text = @"Nhập vào";
+        modelInput.text = @"Giá nhập vào";
         modelInput.value = self.modelItem.moneyInput;
         modelInput.type = ModelTextField;
+        modelInput.indexOfObject = ObjectMoneyInput;
         modelInput.modelTextFieldType = ModelTextFieldInput;
         modelInput.keyBoardType = UIKeyboardTypeDefault;
+        modelInput.placeHolder = @"Đơn giá 1000";
         [array addObject:modelInput];
         
         TextFieldModel *modelOutPut = [[TextFieldModel alloc] init];
-        modelOutPut.text = @"Bán ra";
+        modelOutPut.text = @"Giá bán ra";
         modelOutPut.value = self.modelItem.moneyOutput;
         modelOutPut.type = ModelTextField;
+        modelOutPut.indexOfObject = ObjectMoneyOutput;
         modelOutPut.modelTextFieldType = ModelTextFieldOutput;
         modelOutPut.keyBoardType = UIKeyboardTypeDefault;
+        modelOutPut.placeHolder = @"Đơn giá 1000";
         [array addObject:modelOutPut];
         
         _modelList = [array copy];
@@ -84,8 +93,8 @@
 - (void)saveItem:(ModelItem*)itemModel qrcode:(NSString*)qrcode success:(void(^)(void))success {
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         Item *newEntity = [Item entityWithUuid:itemModel.syncID inContext:localContext];
-        newEntity.syncID = itemModel.syncID;
         newEntity.dateInput = itemModel.dateCreate;
+        newEntity.dateCreate = itemModel.dateCreate;
         newEntity.dateUpdate = itemModel.dateUpdate;
         newEntity.isSell  = itemModel.isSell;
         newEntity.moneyInput = itemModel.moneyInput;

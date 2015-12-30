@@ -15,6 +15,15 @@ typedef NS_ENUM(NSInteger, ModelStyle) {
     ModelPickerView
 };
 
+typedef NS_ENUM(NSInteger, IndexOfObject) {
+    ObjectType,
+    ObjectCode,
+    ObjectDate,
+    ObjectMoneyInput,
+    ObjectMoneyOutput
+};
+
 @interface BaseModel : NSObject
 @property (nonatomic, readwrite) ModelStyle type;
+@property (nonatomic, readwrite) IndexOfObject indexOfObject;
 @end

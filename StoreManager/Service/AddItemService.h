@@ -20,6 +20,7 @@
 @interface AddItemService : NSObject
 @property (nonatomic, strong) NSArray *modelList;
 @property (nonatomic, strong) ModelItem *modelItem;
+@property (nonatomic, strong) NSString *qrCode;
 - (id)initWithUuid:(NSString*)uuid;
 
 - (void)saveItem:(ModelItem*)itemModel qrcode:(NSString*)qrcode success:(void(^)(void))success;
