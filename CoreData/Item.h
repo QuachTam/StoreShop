@@ -2,7 +2,7 @@
 //  Item.h
 //  StoreManager
 //
-//  Created by ATam on 12/29/15.
+//  Created by ATam on 12/30/15.
 //  Copyright (c) 2015 ATam. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Base.h"
 
-@class Qrcode, TypeItem;
+@class Qrcode, Shopping, TypeItem;
 
 @interface Item : Base
 
@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSString * qrcode;
 @property (nonatomic, retain) Qrcode *qrCode;
 @property (nonatomic, retain) TypeItem *typeItem;
+@property (nonatomic, retain) Shopping *shopping;
 
 @end

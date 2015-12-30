@@ -25,4 +25,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextDateInput;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintValuteDateInput;
 
+
+@property (nonatomic, strong) void(^didClickShopping)(NSInteger index);
+- (IBAction)actionShopping:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buttonShopping;
+
 @end

@@ -1,36 +1,23 @@
 //
-//  VCShopping.m
+//  VCShoppingDetail.m
 //  StoreManager
 //
-//  Created by Tamqn on 12/30/15.
-//  Copyright © 2015 ATam. All rights reserved.
+//  Created by ATam on 12/30/15.
+//  Copyright (c) 2015 ATam. All rights reserved.
 //
 
-#import "VCShopping.h"
+#import "VCShoppingDetail.h"
 
-@interface VCShopping ()
+@interface VCShoppingDetail ()
 
 @end
 
-@implementation VCShopping
+@implementation VCShoppingDetail
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Rỏ hàng";
     // Do any additional setup after loading the view from its nib.
-    [self setLeftButtonNavicationBar];
-    [self rightButtonNavicationBar];
 }
-
-- (void)rightButtonNavicationBar {
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
-    self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
-}
-
-- (void)actionNewItem {
-    
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

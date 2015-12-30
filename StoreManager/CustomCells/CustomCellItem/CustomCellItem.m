@@ -20,4 +20,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)actionShopping:(id)sender {
+    if (self.didClickShopping) {
+        self.didClickShopping([sender tag]);
+    }
+}
 @end

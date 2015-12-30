@@ -30,8 +30,6 @@
 		645A15BA1C284BFB0094802A /* VCMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645A15A31C284BFB0094802A /* VCMenu.xib */; };
 		645A15BB1C284BFB0094802A /* VCRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A15A61C284BFB0094802A /* VCRoot.m */; };
 		645A15BC1C284BFB0094802A /* VCRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645A15A71C284BFB0094802A /* VCRoot.xib */; };
-		645A15BD1C284BFB0094802A /* VCGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A15AA1C284BFB0094802A /* VCGroups.m */; };
-		645A15BE1C284BFB0094802A /* VCGroups.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645A15AB1C284BFB0094802A /* VCGroups.xib */; };
 		645A15CA1C284C0C0094802A /* LocalizationDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A15C41C284C0C0094802A /* LocalizationDefine.m */; };
 		645A15CB1C284C0C0094802A /* LocalizableStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A15C71C284C0C0094802A /* LocalizableStringHelper.m */; };
 		645A15CC1C284C0C0094802A /* LocalizeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A15C91C284C0C0094802A /* LocalizeHelper.m */; };
@@ -73,7 +71,20 @@
 		6461C1DD1C32D165008A1593 /* Qrcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1DC1C32D165008A1593 /* Qrcode.m */; };
 		6461C1E01C32D165008A1593 /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1DF1C32D165008A1593 /* Base.m */; };
 		6461C1E31C32D165008A1593 /* TypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1E21C32D165008A1593 /* TypeItem.m */; };
-		6461C1E61C32D166008A1593 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1E51C32D166008A1593 /* Item.m */; };
+		6461EE6F1C343A7F00FD9A89 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE6B1C343A7F00FD9A89 /* home@2x.png */; };
+		6461EE701C343A7F00FD9A89 /* home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE6C1C343A7F00FD9A89 /* home@3x.png */; };
+		6461EE711C343A7F00FD9A89 /* shopping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE6D1C343A7F00FD9A89 /* shopping@2x.png */; };
+		6461EE721C343A7F00FD9A89 /* shopping@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE6E1C343A7F00FD9A89 /* shopping@3x.png */; };
+		6461EE751C34413800FD9A89 /* ShoppingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE741C34413800FD9A89 /* ShoppingModel.m */; };
+		6461EE781C34416800FD9A89 /* Shopping.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE771C34416800FD9A89 /* Shopping.m */; };
+		6461EE7B1C34416800FD9A89 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE7A1C34416800FD9A89 /* Item.m */; };
+		6461EE7E1C3441C800FD9A89 /* ShoppingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE7D1C3441C800FD9A89 /* ShoppingService.m */; };
+		6461EE831C3442EA00FD9A89 /* VCShopping.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE811C3442EA00FD9A89 /* VCShopping.m */; };
+		6461EE841C3442EA00FD9A89 /* VCShopping.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE821C3442EA00FD9A89 /* VCShopping.xib */; };
+		6461EE891C3442FE00FD9A89 /* VCGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE871C3442FE00FD9A89 /* VCGroups.m */; };
+		6461EE8A1C3442FE00FD9A89 /* VCGroups.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE881C3442FE00FD9A89 /* VCGroups.xib */; };
+		6461EE8F1C34432100FD9A89 /* VCShoppingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461EE8D1C34432100FD9A89 /* VCShoppingDetail.m */; };
+		6461EE901C34432100FD9A89 /* VCShoppingDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6461EE8E1C34432100FD9A89 /* VCShoppingDetail.xib */; };
 		6464FCC51C29B55A0009C040 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC41C29B55A0009C040 /* UIActionSheet+Blocks.m */; };
 		6464FCCA1C29BBDA0009C040 /* CustomCellPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */; };
 		6464FCCB1C29BBDA0009C040 /* CustomCellPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */; };
@@ -90,8 +101,6 @@
 		FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */; };
 		FBC696CD1C33720100A8FDBE /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CB1C33720100A8FDBE /* qrCode@2x.png */; };
 		FBC696CE1C33720100A8FDBE /* qrCode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC696CC1C33720100A8FDBE /* qrCode@3x.png */; };
-		FBF7B2611C33CF6C009F7788 /* VCShopping.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF7B25F1C33CF6C009F7788 /* VCShopping.m */; };
-		FBF7B2621C33CF6C009F7788 /* VCShopping.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF7B2601C33CF6C009F7788 /* VCShopping.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,9 +158,6 @@
 		645A15A51C284BFB0094802A /* VCRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCRoot.h; sourceTree = "<group>"; };
 		645A15A61C284BFB0094802A /* VCRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCRoot.m; sourceTree = "<group>"; };
 		645A15A71C284BFB0094802A /* VCRoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCRoot.xib; sourceTree = "<group>"; };
-		645A15A91C284BFB0094802A /* VCGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCGroups.h; sourceTree = "<group>"; };
-		645A15AA1C284BFB0094802A /* VCGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGroups.m; sourceTree = "<group>"; };
-		645A15AB1C284BFB0094802A /* VCGroups.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCGroups.xib; sourceTree = "<group>"; };
 		645A15C01C284C020094802A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		645A15C31C284C0C0094802A /* LocalizationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationDefine.h; sourceTree = "<group>"; };
 		645A15C41C284C0C0094802A /* LocalizationDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationDefine.m; sourceTree = "<group>"; };
@@ -222,8 +228,27 @@
 		6461C1DF1C32D165008A1593 /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = "<group>"; };
 		6461C1E11C32D165008A1593 /* TypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeItem.h; sourceTree = "<group>"; };
 		6461C1E21C32D165008A1593 /* TypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeItem.m; sourceTree = "<group>"; };
-		6461C1E41C32D166008A1593 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		6461C1E51C32D166008A1593 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		6461EE6B1C343A7F00FD9A89 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		6461EE6C1C343A7F00FD9A89 /* home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@3x.png"; sourceTree = "<group>"; };
+		6461EE6D1C343A7F00FD9A89 /* shopping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping@2x.png"; sourceTree = "<group>"; };
+		6461EE6E1C343A7F00FD9A89 /* shopping@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping@3x.png"; sourceTree = "<group>"; };
+		6461EE731C34413800FD9A89 /* ShoppingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingModel.h; sourceTree = "<group>"; };
+		6461EE741C34413800FD9A89 /* ShoppingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingModel.m; sourceTree = "<group>"; };
+		6461EE761C34416800FD9A89 /* Shopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shopping.h; sourceTree = "<group>"; };
+		6461EE771C34416800FD9A89 /* Shopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shopping.m; sourceTree = "<group>"; };
+		6461EE791C34416800FD9A89 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		6461EE7A1C34416800FD9A89 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		6461EE7C1C3441C800FD9A89 /* ShoppingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingService.h; sourceTree = "<group>"; };
+		6461EE7D1C3441C800FD9A89 /* ShoppingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingService.m; sourceTree = "<group>"; };
+		6461EE801C3442EA00FD9A89 /* VCShopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCShopping.h; sourceTree = "<group>"; };
+		6461EE811C3442EA00FD9A89 /* VCShopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCShopping.m; sourceTree = "<group>"; };
+		6461EE821C3442EA00FD9A89 /* VCShopping.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCShopping.xib; sourceTree = "<group>"; };
+		6461EE861C3442FE00FD9A89 /* VCGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCGroups.h; sourceTree = "<group>"; };
+		6461EE871C3442FE00FD9A89 /* VCGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGroups.m; sourceTree = "<group>"; };
+		6461EE881C3442FE00FD9A89 /* VCGroups.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCGroups.xib; sourceTree = "<group>"; };
+		6461EE8C1C34432100FD9A89 /* VCShoppingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCShoppingDetail.h; sourceTree = "<group>"; };
+		6461EE8D1C34432100FD9A89 /* VCShoppingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCShoppingDetail.m; sourceTree = "<group>"; };
+		6461EE8E1C34432100FD9A89 /* VCShoppingDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCShoppingDetail.xib; sourceTree = "<group>"; };
 		6464FCC31C29B55A0009C040 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
 		6464FCC41C29B55A0009C040 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		6464FCC71C29BBDA0009C040 /* CustomCellPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellPickerView.h; sourceTree = "<group>"; };
@@ -252,9 +277,6 @@
 		FBC696C91C336D0200A8FDBE /* NSManagedObject+VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VC.m"; sourceTree = "<group>"; };
 		FBC696CB1C33720100A8FDBE /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
 		FBC696CC1C33720100A8FDBE /* qrCode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@3x.png"; sourceTree = "<group>"; };
-		FBF7B25E1C33CF6C009F7788 /* VCShopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCShopping.h; sourceTree = "<group>"; };
-		FBF7B25F1C33CF6C009F7788 /* VCShopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCShopping.m; sourceTree = "<group>"; };
-		FBF7B2601C33CF6C009F7788 /* VCShopping.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCShopping.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +433,9 @@
 		645A15971C284BFB0094802A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6461EE8B1C34431300FD9A89 /* VCShoppingDetail */,
+				6461EE851C3442FE00FD9A89 /* VCGroups */,
+				6461EE7F1C3442EA00FD9A89 /* VCShopping */,
 				645A15981C284BFB0094802A /* SWRevealViewController */,
 				645A15A41C284BFB0094802A /* VCRoot */,
 				645A15A01C284BFB0094802A /* VCMenu */,
@@ -419,8 +444,6 @@
 				645A15E01C28570F0094802A /* VCAddItem */,
 				645A15DA1C2851AB0094802A /* VCItems */,
 				645A159D1C284BFB0094802A /* VCBase */,
-				FBF7B25D1C33CF56009F7788 /* VCShopping */,
-				645A15A81C284BFB0094802A /* VCGroups */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,17 +488,6 @@
 			path = VCRoot;
 			sourceTree = "<group>";
 		};
-		645A15A81C284BFB0094802A /* VCGroups */ = {
-			isa = PBXGroup;
-			children = (
-				645A15A91C284BFB0094802A /* VCGroups.h */,
-				645A15AA1C284BFB0094802A /* VCGroups.m */,
-				645A15AB1C284BFB0094802A /* VCGroups.xib */,
-			);
-			name = VCGroups;
-			path = VCVideos;
-			sourceTree = "<group>";
-		};
 		645A15BF1C284C020094802A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +521,10 @@
 		645A15CD1C284C170094802A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6461EE6B1C343A7F00FD9A89 /* home@2x.png */,
+				6461EE6C1C343A7F00FD9A89 /* home@3x.png */,
+				6461EE6D1C343A7F00FD9A89 /* shopping@2x.png */,
+				6461EE6E1C343A7F00FD9A89 /* shopping@3x.png */,
 				FBC696CB1C33720100A8FDBE /* qrCode@2x.png */,
 				FBC696CC1C33720100A8FDBE /* qrCode@3x.png */,
 				645A15CE1C284C170094802A /* reveal-icon.png */,
@@ -630,6 +646,8 @@
 				645FCE551C2BFC9700A9C69E /* ModelTypeItem.m */,
 				FBC696BF1C32386200A8FDBE /* QRCodeModel.h */,
 				FBC696C01C32386200A8FDBE /* QRCodeModel.m */,
+				6461EE731C34413800FD9A89 /* ShoppingModel.h */,
+				6461EE741C34413800FD9A89 /* ShoppingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,6 +661,8 @@
 				645FCE6A1C2C3ED800A9C69E /* AddItemService.m */,
 				645FCE6F1C2C4F7500A9C69E /* TypeItemService.h */,
 				645FCE701C2C4F7500A9C69E /* TypeItemService.m */,
+				6461EE7C1C3441C800FD9A89 /* ShoppingService.h */,
+				6461EE7D1C3441C800FD9A89 /* ShoppingService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -660,8 +680,10 @@
 		6461C1DA1C32D156008A1593 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				6461C1E41C32D166008A1593 /* Item.h */,
-				6461C1E51C32D166008A1593 /* Item.m */,
+				6461EE791C34416800FD9A89 /* Item.h */,
+				6461EE7A1C34416800FD9A89 /* Item.m */,
+				6461EE761C34416800FD9A89 /* Shopping.h */,
+				6461EE771C34416800FD9A89 /* Shopping.m */,
 				6461C1E11C32D165008A1593 /* TypeItem.h */,
 				6461C1E21C32D165008A1593 /* TypeItem.m */,
 				6461C1DE1C32D165008A1593 /* Base.h */,
@@ -670,6 +692,36 @@
 				6461C1DC1C32D165008A1593 /* Qrcode.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		6461EE7F1C3442EA00FD9A89 /* VCShopping */ = {
+			isa = PBXGroup;
+			children = (
+				6461EE801C3442EA00FD9A89 /* VCShopping.h */,
+				6461EE811C3442EA00FD9A89 /* VCShopping.m */,
+				6461EE821C3442EA00FD9A89 /* VCShopping.xib */,
+			);
+			path = VCShopping;
+			sourceTree = "<group>";
+		};
+		6461EE851C3442FE00FD9A89 /* VCGroups */ = {
+			isa = PBXGroup;
+			children = (
+				6461EE861C3442FE00FD9A89 /* VCGroups.h */,
+				6461EE871C3442FE00FD9A89 /* VCGroups.m */,
+				6461EE881C3442FE00FD9A89 /* VCGroups.xib */,
+			);
+			path = VCGroups;
+			sourceTree = "<group>";
+		};
+		6461EE8B1C34431300FD9A89 /* VCShoppingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6461EE8C1C34432100FD9A89 /* VCShoppingDetail.h */,
+				6461EE8D1C34432100FD9A89 /* VCShoppingDetail.m */,
+				6461EE8E1C34432100FD9A89 /* VCShoppingDetail.xib */,
+			);
+			path = VCShoppingDetail;
 			sourceTree = "<group>";
 		};
 		6464FCC61C29BBC60009C040 /* CustomCellPickerView */ = {
@@ -725,17 +777,6 @@
 				FBC696791C3221E300A8FDBE /* QRToggleTorchButton.m */,
 			);
 			path = QRCodeReaderViewController;
-			sourceTree = "<group>";
-		};
-		FBF7B25D1C33CF56009F7788 /* VCShopping */ = {
-			isa = PBXGroup;
-			children = (
-				FBF7B25E1C33CF6C009F7788 /* VCShopping.h */,
-				FBF7B25F1C33CF6C009F7788 /* VCShopping.m */,
-				FBF7B2601C33CF6C009F7788 /* VCShopping.xib */,
-			);
-			name = VCShopping;
-			path = VCVideos/VCShopping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -829,17 +870,22 @@
 				645A16041C286BF30094802A /* CustomTextRightLeft.xib in Resources */,
 				FBC696CD1C33720100A8FDBE /* qrCode@2x.png in Resources */,
 				645A15BA1C284BFB0094802A /* VCMenu.xib in Resources */,
+				6461EE711C343A7F00FD9A89 /* shopping@2x.png in Resources */,
+				6461EE901C34432100FD9A89 /* VCShoppingDetail.xib in Resources */,
 				645A15B11C284BFB0094802A /* CustomCellDropDownMenu.xib in Resources */,
 				645A15D51C284C170094802A /* reveal-icon@2x.png in Resources */,
-				645A15BE1C284BFB0094802A /* VCGroups.xib in Resources */,
 				645A15D41C284C170094802A /* reveal-icon.png in Resources */,
 				645A15EB1C285B530094802A /* CustomCellTextField.xib in Resources */,
+				6461EE8A1C3442FE00FD9A89 /* VCGroups.xib in Resources */,
 				645FCE681C2C0F2000A9C69E /* CustomCellItem.xib in Resources */,
-				FBF7B2621C33CF6C009F7788 /* VCShopping.xib in Resources */,
 				645FCE111C2BF5F900A9C69E /* VCTypeItem.xib in Resources */,
 				645A15FE1C2862F30094802A /* CustomCellPhoto.xib in Resources */,
+				6461EE721C343A7F00FD9A89 /* shopping@3x.png in Resources */,
+				6461EE6F1C343A7F00FD9A89 /* home@2x.png in Resources */,
+				6461EE841C3442EA00FD9A89 /* VCShopping.xib in Resources */,
 				645A15D91C284C170094802A /* UITableExpand@2x.png in Resources */,
 				645A15D71C284C170094802A /* UITableContract@2x.png in Resources */,
+				6461EE701C343A7F00FD9A89 /* home@3x.png in Resources */,
 				645A15D61C284C170094802A /* UITableContract.png in Resources */,
 				645FCE051C2BEF6900A9C69E /* VCPickerView.xib in Resources */,
 				645A15D81C284C170094802A /* UITableExpand.png in Resources */,
@@ -911,6 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6461EE7B1C34416800FD9A89 /* Item.m in Sources */,
 				645A15FD1C2862F30094802A /* CustomCellPhoto.m in Sources */,
 				645A15B01C284BFB0094802A /* CustomCellDropDownMenu.m in Sources */,
 				645A15B91C284BFB0094802A /* VCMenu.m in Sources */,
@@ -918,6 +965,7 @@
 				645A15B51C284BFB0094802A /* CustomHeader.m in Sources */,
 				645A15EA1C285B530094802A /* CustomCellTextField.m in Sources */,
 				645A15B31C284BFB0094802A /* CustomCellCommon.m in Sources */,
+				6461EE831C3442EA00FD9A89 /* VCShopping.m in Sources */,
 				FBC6967A1C3221E300A8FDBE /* QRCameraSwitchButton.m in Sources */,
 				645FCE1D1C2BF9B700A9C69E /* ModelManager.m in Sources */,
 				FBC696941C3230C000A8FDBE /* UIAlertView+Blocks.m in Sources */,
@@ -934,9 +982,9 @@
 				645A15B41C284BFB0094802A /* CustomFooter.m in Sources */,
 				6461C1DD1C32D165008A1593 /* Qrcode.m in Sources */,
 				645FCE561C2BFC9700A9C69E /* ModelItem.m in Sources */,
+				6461EE8F1C34432100FD9A89 /* VCShoppingDetail.m in Sources */,
 				645A15DE1C2851B90094802A /* VCItems.m in Sources */,
 				645A15B71C284BFB0094802A /* SWRevealViewController.m in Sources */,
-				645A15BD1C284BFB0094802A /* VCGroups.m in Sources */,
 				645FCE101C2BF5F900A9C69E /* VCTypeItem.m in Sources */,
 				645FCE211C2BF9B700A9C69E /* TextRLModel.m in Sources */,
 				645A15CC1C284C0C0094802A /* LocalizeHelper.m in Sources */,
@@ -948,11 +996,11 @@
 				645FCE1E1C2BF9B700A9C69E /* PhotoModel.m in Sources */,
 				645FCE5D1C2BFCEB00A9C69E /* CommonModel.m in Sources */,
 				FBC6967D1C3221E300A8FDBE /* QRCodeReaderViewController.m in Sources */,
+				6461EE891C3442FE00FD9A89 /* VCGroups.m in Sources */,
 				645A160A1C286DC30094802A /* NSDate+Helper.m in Sources */,
+				6461EE751C34413800FD9A89 /* ShoppingModel.m in Sources */,
 				645FCE6B1C2C3ED800A9C69E /* AddItemService.m in Sources */,
 				645A15E41C28571D0094802A /* VCAddItem.m in Sources */,
-				FBF7B2611C33CF6C009F7788 /* VCShopping.m in Sources */,
-				6461C1E61C32D166008A1593 /* Item.m in Sources */,
 				6461C1E01C32D165008A1593 /* Base.m in Sources */,
 				FBC696CA1C336D0200A8FDBE /* NSManagedObject+VC.m in Sources */,
 				FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */,
@@ -965,6 +1013,8 @@
 				645FCE711C2C4F7500A9C69E /* TypeItemService.m in Sources */,
 				FBC6967B1C3221E300A8FDBE /* QRCodeReader.m in Sources */,
 				645A15AF1C284BFB0094802A /* RWLabel.m in Sources */,
+				6461EE781C34416800FD9A89 /* Shopping.m in Sources */,
+				6461EE7E1C3441C800FD9A89 /* ShoppingService.m in Sources */,
 				645A15CB1C284C0C0094802A /* LocalizableStringHelper.m in Sources */,
 				645A15CA1C284C0C0094802A /* LocalizationDefine.m in Sources */,
 				645A15601C284B150094802A /* StoreManager.xcdatamodeld in Sources */,

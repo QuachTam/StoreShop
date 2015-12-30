@@ -2,12 +2,13 @@
 //  Item.m
 //  StoreManager
 //
-//  Created by ATam on 12/29/15.
+//  Created by ATam on 12/30/15.
 //  Copyright (c) 2015 ATam. All rights reserved.
 //
 
 #import "Item.h"
 #import "Qrcode.h"
+#import "Shopping.h"
 #import "TypeItem.h"
 
 
@@ -22,5 +23,6 @@
 @dynamic qrcode;
 @dynamic qrCode;
 @dynamic typeItem;
+@dynamic shopping;
 
 @end

@@ -97,11 +97,18 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9v-xU-f4V">
-                        <rect key="frame" x="265" y="59" width="46" height="30"/>
-                        <state key="normal" title="Button">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9v-xU-f4V">
+                        <rect key="frame" x="285" y="56" width="27" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="27" id="a8S-4U-j8N"/>
+                            <constraint firstAttribute="height" constant="24" id="erL-nx-cKf"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="shopping.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="actionShopping:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5ne-fr-zAZ"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -126,12 +133,15 @@
                     <constraint firstItem="VPi-bj-NdM" firstAttribute="leading" secondItem="t78-Js-iks" secondAttribute="trailing" constant="8" id="fuN-5C-D9w"/>
                     <constraint firstAttribute="bottom" secondItem="t78-Js-iks" secondAttribute="bottom" constant="9" id="gCd-pt-FV3"/>
                     <constraint firstItem="LCD-wb-g8b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="j27-y0-Von"/>
+                    <constraint firstItem="j9v-xU-f4V" firstAttribute="top" secondItem="4Wg-de-obv" secondAttribute="bottom" constant="5" id="k7j-gd-yN1"/>
                     <constraint firstItem="MLf-NZ-XvT" firstAttribute="leading" secondItem="e3r-fP-ltk" secondAttribute="leading" id="ogR-dF-Ryv"/>
                     <constraint firstItem="S31-La-5c8" firstAttribute="centerY" secondItem="kFy-Su-I71" secondAttribute="centerY" constant="1" id="u0m-NA-1fo"/>
                     <constraint firstItem="kFy-Su-I71" firstAttribute="top" secondItem="LCD-wb-g8b" secondAttribute="bottom" constant="3" id="v6M-C0-Rs5"/>
+                    <constraint firstAttribute="trailing" secondItem="j9v-xU-f4V" secondAttribute="trailing" constant="8" id="xb5-f9-6HK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="buttonShopping" destination="j9v-xU-f4V" id="0dL-Zm-xD6"/>
                 <outlet property="constraintTextDateInput" destination="iCk-sh-DV5" id="x2u-rM-34M"/>
                 <outlet property="constraintTextInput" destination="Ony-pJ-EIc" id="0at-kz-c9M"/>
                 <outlet property="constraintValueInput" destination="IEk-Nd-aqx" id="yl9-9s-JEX"/>
@@ -147,7 +157,10 @@
                 <outlet property="labelValueMoneyInput" destination="pWa-7c-WPm" id="M1w-au-kTR"/>
                 <outlet property="labelValueMoneyOutput" destination="VPi-bj-NdM" id="Ffk-GF-bUH"/>
             </connections>
-            <point key="canvasLocation" x="430" y="193.5"/>
+            <point key="canvasLocation" x="577" y="208.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="shopping.png" width="64" height="64"/>
+    </resources>
 </document>

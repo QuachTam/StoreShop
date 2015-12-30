@@ -9,5 +9,6 @@
 #import "VCBase.h"
 
 @interface VCShopping : VCBase
+@property (weak, nonatomic) IBOutlet UITableView *tbView;
 
 @end

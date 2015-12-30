@@ -257,6 +257,10 @@ static NSString *stringIdentify = @"CustomCellItem";
     if (model.dateOutput) {
         cell.labelValueDateOutput.text = [NSDate stringFromDate:model.dateOutput withFormat:@"dd-MM-yyyy HH:mm"];
     }
+    cell.buttonShopping.tag = indexPath.row;
+    cell.didClickShopping = ^(NSInteger index){
+        [self actionShoppingWithIndex:index];
+    };
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -286,6 +290,21 @@ static NSString *stringIdentify = @"CustomCellItem";
         return 44;
     }
     return size.height + 1.0f; // Add 1.0f for the cell separator height
+}
+
+- (void)actionShoppingWithIndex:(NSInteger)index{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    ModelItem * modelItem = [self.service fetchModelAtIndexPath:indexPath];
+    [UIAlertView showWithTitle:nil message:[NSString stringWithFormat:@"Bạn có muốn thêm %@ vào rỏ hàng", modelItem.modelTypeItem.name] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
+        NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+        if ([buttonTitle isEqualToString:@"Đồng ý"]) {
+//            [self.service updateItemForSell:modelItem success:^{
+//                [UIAlertView showWithTitle:nil message:@"Thêm thành công" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
+//                }];
+//            }];
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
