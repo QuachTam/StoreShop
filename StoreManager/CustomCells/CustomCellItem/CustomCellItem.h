@@ -20,5 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTextMoneyOutput;
 @property (weak, nonatomic) IBOutlet UILabel *labelValueMoneyOutput;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatus;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextInput;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintValueInput;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextDateInput;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintValuteDateInput;
 
 @end

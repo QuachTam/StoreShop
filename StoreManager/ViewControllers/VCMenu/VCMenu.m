@@ -118,7 +118,7 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 
 - (NSArray *)datas {
     if (!_datas) {
-        _datas =@[@"Kho hàng", @"Rỏ hàng", @"Thống kê", @"Thông tin"];
+        _datas =@[@"Kho hàng", @"Rỏ hàng", @"Thống kê", @"Cài đặt", @"Thông tin"];
     }
     return _datas;
 }

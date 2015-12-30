@@ -69,6 +69,9 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWa-7c-WPm">
                         <rect key="frame" x="82" y="80" width="230" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="IEk-Nd-aqx"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -94,6 +97,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9v-xU-f4V">
+                        <rect key="frame" x="265" y="59" width="46" height="30"/>
+                        <state key="normal" title="Button">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="LCD-wb-g8b" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="1tV-7s-Q6u"/>
@@ -123,6 +132,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="constraintTextDateInput" destination="iCk-sh-DV5" id="x2u-rM-34M"/>
+                <outlet property="constraintTextInput" destination="Ony-pJ-EIc" id="0at-kz-c9M"/>
+                <outlet property="constraintValueInput" destination="IEk-Nd-aqx" id="yl9-9s-JEX"/>
+                <outlet property="constraintValuteDateInput" destination="tVx-BL-NMe" id="NPa-Hv-Tdy"/>
                 <outlet property="labelName" destination="LCD-wb-g8b" id="MtI-ca-rCn"/>
                 <outlet property="labelStatus" destination="4Wg-de-obv" id="2Dd-QI-cOw"/>
                 <outlet property="labelTextDateInput" destination="kFy-Su-I71" id="VeX-qZ-6XF"/>
@@ -134,7 +147,7 @@
                 <outlet property="labelValueMoneyInput" destination="pWa-7c-WPm" id="M1w-au-kTR"/>
                 <outlet property="labelValueMoneyOutput" destination="VPi-bj-NdM" id="Ffk-GF-bUH"/>
             </connections>
-            <point key="canvasLocation" x="591" y="178.5"/>
+            <point key="canvasLocation" x="430" y="193.5"/>
         </tableViewCell>
     </objects>
 </document>

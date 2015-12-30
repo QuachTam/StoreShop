@@ -142,4 +142,14 @@
     }];
 }
 
+- (void)deleteItemWithModel:(ModelItem *)item success:(void (^)(void))success {
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        Item *entity = [Item entityWithUuid:item.syncID inContext:localContext];
+        [entity MR_deleteEntityInContext:localContext];
+    }];
+    if (success) {
+        success();
+    }
+}
+
 @end

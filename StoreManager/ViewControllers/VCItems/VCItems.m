@@ -14,7 +14,7 @@
 #import "UIAlertView+Blocks.h"
 
 static NSString *stringIdentify = @"CustomCellItem";
-@interface VCItems ()
+@interface VCItems ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) ItemService *service;
 @end
 
@@ -57,6 +57,7 @@ static NSString *stringIdentify = @"CustomCellItem";
         // Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
+    [self initLongPressGesture];
 }
 
 - (void)rightButtonNavicationBar {
@@ -70,6 +71,38 @@ static NSString *stringIdentify = @"CustomCellItem";
     UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithCustomView:buttonQrcode];
     self.navigationItem.rightBarButtonItems = @[barAddItem, rightRevealButtonItem];
 }
+
+- (void)initLongPressGesture {
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1; //seconds
+    lpgr.delegate = self;
+    [self.tbView addGestureRecognizer:lpgr];
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.tbView];
+    
+    NSIndexPath *indexPath = [self.tbView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    }
+    else {
+        if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+            // I am not sure why I need to cast here. But it seems to be alright.
+            ModelItem *model = [self.service fetchModelAtIndexPath:indexPath];
+            [UIAlertView showWithTitle:nil message:[NSString stringWithFormat:@"Bạn có muốn xoá: %@ ?", model.modelTypeItem.name] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
+                NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+                if ([buttonTitle isEqualToString:@"Đồng ý"]) {
+                    [self.service deleteItemWithModel:model success:^{
+                        
+                    }];
+                }
+            }];
+        }
+    }
+}
+
 
 - (void)actionQRCode {
     if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {

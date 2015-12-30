@@ -18,6 +18,7 @@
 - (id)fetchModelAtIndexPath:(NSIndexPath*)indexPath;
 - (id)findModelWithQrcode:(NSString*)qrcode;
 - (void)updateItemForSell:(ModelItem*)item success:(void(^)(void))success;
+- (void)deleteItemWithModel:(ModelItem *)item success:(void(^)(void))success;
 
 @property (nonatomic, copy, readwrite) void(^beginUpdates)();
 @property (nonatomic, copy, readwrite) void(^endUpdates)();

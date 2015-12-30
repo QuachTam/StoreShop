@@ -40,17 +40,8 @@ extern NSString *MonthDayDBLocalFormat;
                     withRange:(NSRange)range
                   andBoldFont:(UIFont *)boldFont;
 
-+ (UIBarButtonItem *)barButtonItemFromImage:(NSString *)imageName
-                                 withTarget:(id)target
-                                  andAction:(SEL)action;
-
-+ (NSDate *)dateObjectFromUTCString:(NSString *)UTCString;
 + (NSDate *)dateObjectFromLocalTimeString:(NSString *)localTimeString
                                withFormat:(NSString *)dateFormat;
-
-+ (NSString *)convertToUTCTimeZone:(NSString *)localTime
-                   withLocalFormat:(NSString *)localTimeFormat
-                      andUTCFormat:(NSString *)UTCTimeFormat;
 
 + (NSString *)convertToLocalTimeZone:(NSString *)UTCTime
                        withUTCFormat:(NSString *)timeFormat
@@ -61,8 +52,6 @@ extern NSString *MonthDayDBLocalFormat;
 
 + (NSString *)localDateStringFromDateObject:(NSDate *)dateObject
                                  withFormat:(NSString *)formatString;
-
-+ (NSString *)UTCDateStringFromDateObject:(NSDate *)dateObject;
 
 + (CGFloat )radiansToDegrees:(CGFloat )radians;
 
@@ -78,9 +67,6 @@ extern NSString *MonthDayDBLocalFormat;
 + (CGPoint )calculateDerivedPosition:(CGPoint)point
                            withRange:(double)range
                           andBearing:(double)bearing;
-
-+ (NSAttributedString *)keyValueStyleWithKey:(NSString *)key
-                                       value:(NSString *)value;
 
 + (NSAttributedString *)keyValueStyleWithKey:(NSString *)key
                                        value:(NSString *)value
@@ -102,53 +88,17 @@ extern NSString *MonthDayDBLocalFormat;
 
 + (double)floatFromCurrencyString:(NSString *)currencyString;
 
-+ (NSDecimalNumber *)decimalNumberFromCurrencyString:(NSString *)currencyString;
-
 + (NSInteger)integerFromIngegerString:(NSString *)integerString;
 
-+ (UIAlertView *)showErrorAlertViewWithMessage:(NSString *)message;
-
-+ (UIAlertView *)showErrorAlertViewWithMessage:(NSString *)message
-                                      delegate:(id)delegate;
-
-+ (UIAlertView *)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-              cancelButton:(NSString *)cancelButton
-            andOtherButton:(NSString *)otherButton;
-
-+ (UIAlertView *)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-              cancelButton:(NSString *)cancelButton
-            andOtherButton:(NSString *)otherButton
-                   withTag:(NSInteger)tag
-                  delegate:(id)delegate;
-
 + (NSDictionary *)dictionaryFromPlistNamed:(NSString *)plistName;
-
-+ (NSDateComponents *)dateComponentsFromDate:(NSString *)dateInStr
-                           withComponentUnit:(NSCalendarUnit)flagUnit;
 
 + (NSDateComponents *)dateComponentsFromDateObject:(NSDate *)date
                                  withComponentUnit:(NSCalendarUnit)flagUnit;
 
-+ (NSInteger)dayInStockFromDate:(NSString *)dateInStr;
-
-+ (NSInteger)monthsInStockFromDate:(NSString *)dateInStr;
-
-+ (NSInteger)yearsInStockFromDate:(NSString *)dateInStr;
-
-+ (UILabel *)titleLabelWithString:(NSString *)title;
-
 + (NSString*)dateStringFromLongTime:(double)longTime
                          withFormat:(NSString*)formatString;
 
-+ (NSAttributedString *)highlightOfString:(NSString *)highlightStr
-                                 inString:(NSString *)inString;
-
 + (CGFloat)keyboardHeightFromNotification:(NSNotification *)notification;
-
-+ (void)mz_presentFormSheetController:(UIViewController*)selfController
-                       pushController:(UIViewController*)pushController;
 
 + (double)getLongTimesLocal;
 
@@ -156,7 +106,6 @@ extern NSString *MonthDayDBLocalFormat;
 
 +(void)callPhoneNumberwithPhone:(NSString *)phoneNumber;
 + (NSAttributedString *)markRequiredFieldWithString:(NSString *)field;
-+ (BOOL)shouldShowMessage:(NSString *)message;
 + (NSString *)adjustMessageError:(NSString *)message;
 + (NSString *)imageToNSString:(UIImage *)image;
 + (UIImage *)stringToUIImage:(NSString *)string;

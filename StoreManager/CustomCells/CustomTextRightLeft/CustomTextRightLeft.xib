@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="248" translatesAutoresizingMaskIntoConstraints="NO" id="ey4-tU-pYj" customClass="RWLabel">
-                        <rect key="frame" x="47" y="0.0" width="265" height="44"/>
+                        <rect key="frame" x="52" y="0.0" width="260" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                     <constraint firstAttribute="trailing" secondItem="ey4-tU-pYj" secondAttribute="trailing" constant="8" id="eeq-IC-d8E"/>
                     <constraint firstAttribute="bottom" secondItem="ey4-tU-pYj" secondAttribute="bottom" constant="-1" id="l3n-gc-LiR"/>
                     <constraint firstItem="ey4-tU-pYj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="llw-4f-Jyd"/>
-                    <constraint firstItem="ey4-tU-pYj" firstAttribute="leading" secondItem="NGm-AB-DaF" secondAttribute="trailing" constant="3" id="x8q-w5-T0j"/>
+                    <constraint firstItem="ey4-tU-pYj" firstAttribute="leading" secondItem="NGm-AB-DaF" secondAttribute="trailing" constant="8" id="x8q-w5-T0j"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

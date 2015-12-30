@@ -463,43 +463,10 @@ static NSDateFormatter *df_local;
     return message;
 }
 
-+ (UIAlertView *)showAlertWithTitle:(NSString *)title message:(NSString *)message cancelButton:(NSString *)cancelButton andOtherButton:(NSString *)otherButton {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButton otherButtonTitles:otherButton, nil];
-    if ([self shouldShowMessage:message]) {
-        [alert show];
-    }
-    return alert;
-}
-
-+ (UIAlertView *)showAlertWithTitle:(NSString *)title message:(NSString *)message cancelButton:(NSString *)cancelButton andOtherButton:(NSString *)otherButton withTag:(NSInteger)tag delegate:(id)delegate {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButton otherButtonTitles:otherButton, nil];
-    alert.tag = tag;
-    if ([self shouldShowMessage:message]) {
-        [alert show];
-    }
-    return alert;    
-}
-
 + (NSDictionary *)dictionaryFromPlistNamed:(NSString *)plistName {
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"];
     NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     return data;
-}
-
-+ (NSDateComponents *)dateComponentsFromDate:(NSString *)dateInStr withComponentUnit:(NSCalendarUnit)flagUnit{
-    NSDate *date = [QSCommon dateObjectFromUTCString:dateInStr];
-    NSDate *currentDate = [NSDate date];
-    
-    static NSCalendar *gregorianCalendar = nil;
-    if (!gregorianCalendar) {
-        gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    }
-    
-    NSDateComponents *components = [gregorianCalendar components:flagUnit
-                                                        fromDate:date
-                                                          toDate:currentDate
-                                                         options:0];
-    return components;
 }
 
 + (NSDateComponents *)dateComponentsFromDateObject:(NSDate *)date withComponentUnit:(NSCalendarUnit)flagUnit {
@@ -516,26 +483,6 @@ static NSDateFormatter *df_local;
                                                          options:0];
     return components;
 }
-
-+ (NSInteger)monthsInStockFromDate:(NSString *)dateInStr {
-    NSDateComponents *components = [self dateComponentsFromDate:dateInStr withComponentUnit:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit];
-    NSInteger months = components.month + components.year * 12;
-    
-    return months;
-}
-
-+ (NSInteger)dayInStockFromDate:(NSString *)dateInStr {
-    NSDateComponents *components = [self dateComponentsFromDate:dateInStr withComponentUnit:NSDayCalendarUnit];
-    NSInteger days = components.day;
-    return days;
-}
-
-+ (NSInteger)yearsInStockFromDate:(NSString *)dateInStr {
-    NSDateComponents *components = [self dateComponentsFromDate:dateInStr withComponentUnit:NSYearCalendarUnit];
-    NSInteger years = components.year;
-    return years;
-}
-
 
 + (NSString*)dateStringFromLongTime:(double)longTime withFormat:(NSString*)formatString{
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:longTime/1000];
