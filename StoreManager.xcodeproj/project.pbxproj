@@ -68,6 +68,7 @@
 		645FCE681C2C0F2000A9C69E /* CustomCellItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645FCE661C2C0F2000A9C69E /* CustomCellItem.xib */; };
 		645FCE6B1C2C3ED800A9C69E /* AddItemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 645FCE6A1C2C3ED800A9C69E /* AddItemService.m */; };
 		645FCE711C2C4F7500A9C69E /* TypeItemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 645FCE701C2C4F7500A9C69E /* TypeItemService.m */; };
+		64612FAB1C3D624A0068FD5B /* ShoppingDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 64612FAA1C3D624A0068FD5B /* ShoppingDetailService.m */; };
 		6461C1DD1C32D165008A1593 /* Qrcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1DC1C32D165008A1593 /* Qrcode.m */; };
 		6461C1E01C32D165008A1593 /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1DF1C32D165008A1593 /* Base.m */; };
 		6461C1E31C32D165008A1593 /* TypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6461C1E21C32D165008A1593 /* TypeItem.m */; };
@@ -222,6 +223,8 @@
 		645FCE6A1C2C3ED800A9C69E /* AddItemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemService.m; sourceTree = "<group>"; };
 		645FCE6F1C2C4F7500A9C69E /* TypeItemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeItemService.h; sourceTree = "<group>"; };
 		645FCE701C2C4F7500A9C69E /* TypeItemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeItemService.m; sourceTree = "<group>"; };
+		64612FA91C3D624A0068FD5B /* ShoppingDetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingDetailService.h; sourceTree = "<group>"; };
+		64612FAA1C3D624A0068FD5B /* ShoppingDetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingDetailService.m; sourceTree = "<group>"; };
 		6461C1DB1C32D165008A1593 /* Qrcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Qrcode.h; sourceTree = "<group>"; };
 		6461C1DC1C32D165008A1593 /* Qrcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Qrcode.m; sourceTree = "<group>"; };
 		6461C1DE1C32D165008A1593 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 				645FCE701C2C4F7500A9C69E /* TypeItemService.m */,
 				6461EE7C1C3441C800FD9A89 /* ShoppingService.h */,
 				6461EE7D1C3441C800FD9A89 /* ShoppingService.m */,
+				64612FA91C3D624A0068FD5B /* ShoppingDetailService.h */,
+				64612FAA1C3D624A0068FD5B /* ShoppingDetailService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1012,6 +1017,7 @@
 				645A15B21C284BFB0094802A /* CustomCellBackground.m in Sources */,
 				645FCE711C2C4F7500A9C69E /* TypeItemService.m in Sources */,
 				FBC6967B1C3221E300A8FDBE /* QRCodeReader.m in Sources */,
+				64612FAB1C3D624A0068FD5B /* ShoppingDetailService.m in Sources */,
 				645A15AF1C284BFB0094802A /* RWLabel.m in Sources */,
 				6461EE781C34416800FD9A89 /* Shopping.m in Sources */,
 				6461EE7E1C3441C800FD9A89 /* ShoppingService.m in Sources */,

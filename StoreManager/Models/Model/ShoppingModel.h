@@ -8,8 +8,11 @@
 
 #import "CommonModel.h"
 #import "Shopping.h"
+#import "Item.h"
+#import "ModelItem.h"
 
 @interface ShoppingModel : CommonModel
 @property (nonatomic, strong) Shopping *entity;
+@property (nonatomic, strong) NSArray *modelItem;
 - (instancetype)initWithEntity:(Shopping *)entity;
 @end

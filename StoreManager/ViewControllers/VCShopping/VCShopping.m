@@ -12,6 +12,7 @@
 #import "ShoppingModel.h"
 #import "ShoppingService.h"
 #import "UIAlertView+Blocks.h"
+#import "VCShoppingDetail.h"
 
 static NSString *stringIdentify = @"CustomCellDropDownMenu";
 @interface VCShopping ()<UIGestureRecognizerDelegate>
@@ -83,8 +84,10 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UITextField * alertTextField = [alertView textFieldAtIndex:0];
-    [self saveNewTypeItem:alertTextField];
+    if (buttonIndex) {
+        UITextField * alertTextField = [alertView textFieldAtIndex:0];
+        [self saveNewTypeItem:alertTextField];
+    }
 }
 
 - (void)saveNewTypeItem:(UITextField *)textField {
@@ -137,7 +140,8 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
-    
+    VCShoppingDetail *shoppingDetail = [[VCShoppingDetail alloc] init];
+    [self.navigationController pushViewController:shoppingDetail animated:YES];
 }
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
