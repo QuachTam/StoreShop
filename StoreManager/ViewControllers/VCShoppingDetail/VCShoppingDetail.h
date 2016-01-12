@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VCShoppingDetail : UIViewController
-
+@interface VCShoppingDetail : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tbView;
+@property (nonatomic, strong) NSString *syncID;
 @end

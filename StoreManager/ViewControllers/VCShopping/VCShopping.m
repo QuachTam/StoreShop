@@ -15,7 +15,9 @@
 #import "VCShoppingDetail.h"
 
 static NSString *stringIdentify = @"CustomCellDropDownMenu";
-@interface VCShopping ()<UIGestureRecognizerDelegate>
+@interface VCShopping ()<UIGestureRecognizerDelegate> {
+    NSIndexPath *currentIndexPath;
+}
 @property (nonatomic, strong) NSArray *datas;
 @property (nonatomic, strong) ShoppingService *service;
 @end
@@ -26,7 +28,9 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
     [super viewDidLoad];
     self.title = @"Rỏ hàng";
     // Do any additional setup after loading the view from its nib.
-    [self setLeftButtonNavicationBar];
+    if (self.type_from!=from_item) {
+        [self setLeftButtonNavicationBar];
+    }
     [self rightButtonNavicationBar];
     [self registerTableViewCell];
     
@@ -37,11 +41,19 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
         [week.tbView reloadData];
     };
     [self.service fetchTypeItem];
-    [self initLongPressGesture];
+    if (self.type_from!=from_item) {
+        [self initLongPressGesture];
+    }
 }
 
 - (void)rightButtonNavicationBar {
-    UIBarButtonItem *rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
+    UIBarButtonItem *rightRevealButtonItem;
+    if (self.type_from!=from_item) {
+        rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionNewItem)];
+    }else{
+        rightRevealButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(actionSaveInsertItemToShopping)];
+        
+    }
     self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
 }
 
@@ -50,6 +62,16 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
     alertView.tag = 2;
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
+}
+
+- (void)actionSaveInsertItemToShopping {
+    if (currentIndexPath && self.syncIDItem) {
+        ShoppingModel *model = [self.datas objectAtIndex:currentIndexPath.row];
+        __weak __typeof(self)week = self;
+        [self.service addItemToShopping:model itemID:self.syncIDItem success:^{
+            [week.navigationController popViewControllerAnimated:YES];
+        }];
+    }
 }
 
 - (void)initLongPressGesture {
@@ -140,8 +162,19 @@ static NSString *stringIdentify = @"CustomCellDropDownMenu";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
-    VCShoppingDetail *shoppingDetail = [[VCShoppingDetail alloc] init];
-    [self.navigationController pushViewController:shoppingDetail animated:YES];
+    if (self.type_from!=from_item) {
+        ShoppingModel *model = [self.datas objectAtIndex:indexPath.row];
+        VCShoppingDetail *shoppingDetail = [[VCShoppingDetail alloc] init];
+        shoppingDetail.syncID = model.syncID;
+        [self.navigationController pushViewController:shoppingDetail animated:YES];
+    }else{
+        currentIndexPath = indexPath;
+        [[self.tbView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[self.tbView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
 }
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView{
