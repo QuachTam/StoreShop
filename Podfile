@@ -6,15 +6,16 @@ inhibit_all_warnings!
 xcodeproj 'StoreManager'
 
 target :StoreManager do
-pod 'MagicalRecord', '~> 2.2'
-pod 'PureLayout', '~> 2.0'
-pod 'AFNetworking', '~> 2.5'
-pod 'MBProgressHUD', '~> 0.4'
-pod 'JSONModel', '~> 1.0'
-pod 'WYPopoverController', '~> 0.3'
-pod 'MZFormSheetController', '~> 2.4'
+pod 'MagicalRecord'
+pod 'PureLayout'
+pod 'AFNetworking'
+pod 'MBProgressHUD'
+pod 'JSONModel'
+pod 'WYPopoverController'
+pod 'MZFormSheetController'
 pod 'MBLocationManager'
 pod 'GoogleMaps'
+pod 'Parse'
 end
 
 post_install do |installer|

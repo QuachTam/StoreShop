@@ -92,6 +92,22 @@
 		74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */; };
 		FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */; };
 		FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */; };
+		FB6E93F21C4DD8C0009DF197 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F11C4DD8C0009DF197 /* AdSupport.framework */; };
+		FB6E93F41C4DD8C8009DF197 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F31C4DD8C8009DF197 /* Social.framework */; };
+		FB6E93F61C4DD8D0009DF197 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F51C4DD8D0009DF197 /* Accounts.framework */; };
+		FB6E93F81C4DD8D9009DF197 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F71C4DD8D9009DF197 /* AudioToolbox.framework */; };
+		FB6E93FA1C4DD8E0009DF197 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F91C4DD8E0009DF197 /* CFNetwork.framework */; };
+		FB6E93FC1C4DD8E7009DF197 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93FB1C4DD8E7009DF197 /* CoreGraphics.framework */; };
+		FB6E93FE1C4DD8EE009DF197 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93FD1C4DD8EE009DF197 /* CoreLocation.framework */; };
+		FB6E94001C4DD8FB009DF197 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93FF1C4DD8FB009DF197 /* MobileCoreServices.framework */; };
+		FB6E94021C4DD907009DF197 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E94011C4DD907009DF197 /* Foundation.framework */; };
+		FB6E94041C4DD921009DF197 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E94031C4DD921009DF197 /* QuartzCore.framework */; };
+		FB6E94061C4DD928009DF197 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E94051C4DD928009DF197 /* Security.framework */; };
+		FB6E94081C4DD92E009DF197 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E94071C4DD92E009DF197 /* StoreKit.framework */; };
+		FB6E940A1C4DD939009DF197 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E94091C4DD939009DF197 /* SystemConfiguration.framework */; };
+		FB6E940C1C4DD943009DF197 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E940B1C4DD943009DF197 /* libz.tbd */; };
+		FB6E940E1C4DD951009DF197 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E940D1C4DD951009DF197 /* libsqlite3.tbd */; };
+		FBA28DC41C4CD3FE00308D91 /* SDAFParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA28DC31C4CD3FE00308D91 /* SDAFParseAPIClient.m */; };
 		FBC6967A1C3221E300A8FDBE /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696701C3221E300A8FDBE /* QRCameraSwitchButton.m */; };
 		FBC6967B1C3221E300A8FDBE /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696721C3221E300A8FDBE /* QRCodeReader.m */; };
 		FBC6967C1C3221E300A8FDBE /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC696751C3221E300A8FDBE /* QRCodeReaderView.m */; };
@@ -261,6 +277,23 @@
 		FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellDatePicker.h; sourceTree = "<group>"; };
 		FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellDatePicker.m; sourceTree = "<group>"; };
 		FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellDatePicker.xib; sourceTree = "<group>"; };
+		FB6E93F11C4DD8C0009DF197 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FB6E93F31C4DD8C8009DF197 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FB6E93F51C4DD8D0009DF197 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		FB6E93F71C4DD8D9009DF197 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FB6E93F91C4DD8E0009DF197 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FB6E93FB1C4DD8E7009DF197 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB6E93FD1C4DD8EE009DF197 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FB6E93FF1C4DD8FB009DF197 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FB6E94011C4DD907009DF197 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB6E94031C4DD921009DF197 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB6E94051C4DD928009DF197 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FB6E94071C4DD92E009DF197 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FB6E94091C4DD939009DF197 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FB6E940B1C4DD943009DF197 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FB6E940D1C4DD951009DF197 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FBA28DC21C4CD3FE00308D91 /* SDAFParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAFParseAPIClient.h; sourceTree = "<group>"; };
+		FBA28DC31C4CD3FE00308D91 /* SDAFParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAFParseAPIClient.m; sourceTree = "<group>"; };
 		FBC6966F1C3221E300A8FDBE /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
 		FBC696701C3221E300A8FDBE /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
 		FBC696711C3221E300A8FDBE /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
@@ -287,6 +320,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6E940E1C4DD951009DF197 /* libsqlite3.tbd in Frameworks */,
+				FB6E940C1C4DD943009DF197 /* libz.tbd in Frameworks */,
+				FB6E940A1C4DD939009DF197 /* SystemConfiguration.framework in Frameworks */,
+				FB6E94081C4DD92E009DF197 /* StoreKit.framework in Frameworks */,
+				FB6E94061C4DD928009DF197 /* Security.framework in Frameworks */,
+				FB6E94041C4DD921009DF197 /* QuartzCore.framework in Frameworks */,
+				FB6E94021C4DD907009DF197 /* Foundation.framework in Frameworks */,
+				FB6E94001C4DD8FB009DF197 /* MobileCoreServices.framework in Frameworks */,
+				FB6E93FE1C4DD8EE009DF197 /* CoreLocation.framework in Frameworks */,
+				FB6E93FC1C4DD8E7009DF197 /* CoreGraphics.framework in Frameworks */,
+				FB6E93FA1C4DD8E0009DF197 /* CFNetwork.framework in Frameworks */,
+				FB6E93F81C4DD8D9009DF197 /* AudioToolbox.framework in Frameworks */,
+				FB6E93F61C4DD8D0009DF197 /* Accounts.framework in Frameworks */,
+				FB6E93F41C4DD8C8009DF197 /* Social.framework in Frameworks */,
+				FB6E93F21C4DD8C0009DF197 /* AdSupport.framework in Frameworks */,
 				74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +376,7 @@
 			children = (
 				645A155B1C284B150094802A /* AppDelegate.h */,
 				645A155C1C284B150094802A /* AppDelegate.m */,
+				FBA28DC11C4CD3DB00308D91 /* APIService */,
 				645FCE5E1C2C005E00A9C69E /* Service */,
 				645A15EC1C285C940094802A /* Models */,
 				645A15801C284BFB0094802A /* Commons */,
@@ -751,6 +800,21 @@
 		B4741EF2481AD996D4D4898C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB6E940D1C4DD951009DF197 /* libsqlite3.tbd */,
+				FB6E940B1C4DD943009DF197 /* libz.tbd */,
+				FB6E94091C4DD939009DF197 /* SystemConfiguration.framework */,
+				FB6E94071C4DD92E009DF197 /* StoreKit.framework */,
+				FB6E94051C4DD928009DF197 /* Security.framework */,
+				FB6E94031C4DD921009DF197 /* QuartzCore.framework */,
+				FB6E94011C4DD907009DF197 /* Foundation.framework */,
+				FB6E93FF1C4DD8FB009DF197 /* MobileCoreServices.framework */,
+				FB6E93FD1C4DD8EE009DF197 /* CoreLocation.framework */,
+				FB6E93FB1C4DD8E7009DF197 /* CoreGraphics.framework */,
+				FB6E93F91C4DD8E0009DF197 /* CFNetwork.framework */,
+				FB6E93F71C4DD8D9009DF197 /* AudioToolbox.framework */,
+				FB6E93F51C4DD8D0009DF197 /* Accounts.framework */,
+				FB6E93F31C4DD8C8009DF197 /* Social.framework */,
+				FB6E93F11C4DD8C0009DF197 /* AdSupport.framework */,
 				51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */,
 			);
 			name = Frameworks;
@@ -764,6 +828,15 @@
 				FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */,
 			);
 			path = CustomCellDatePicker;
+			sourceTree = "<group>";
+		};
+		FBA28DC11C4CD3DB00308D91 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				FBA28DC21C4CD3FE00308D91 /* SDAFParseAPIClient.h */,
+				FBA28DC31C4CD3FE00308D91 /* SDAFParseAPIClient.m */,
+			);
+			path = APIService;
 			sourceTree = "<group>";
 		};
 		FBC6966E1C3221E300A8FDBE /* QRCodeReaderViewController */ = {
@@ -963,6 +1036,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6461EE7B1C34416800FD9A89 /* Item.m in Sources */,
+				FBA28DC41C4CD3FE00308D91 /* SDAFParseAPIClient.m in Sources */,
 				645A15FD1C2862F30094802A /* CustomCellPhoto.m in Sources */,
 				645A15B01C284BFB0094802A /* CustomCellDropDownMenu.m in Sources */,
 				645A15B91C284BFB0094802A /* VCMenu.m in Sources */,
