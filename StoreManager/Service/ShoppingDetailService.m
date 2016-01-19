@@ -24,5 +24,12 @@
     }
 }
 
+- (void)removeItemFromShopping:(NSString *)shoppingId itemId:(NSString*)itemId {
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        Shopping *entity = [Shopping entityWithUuid:shoppingId inContext:localContext];
+        Item *item = [Item entityWithUuid:itemId inContext:localContext];
+        [entity removeItemsObject:item];
+    }];
+}
 
 @end

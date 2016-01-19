@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ShoppingModel.h"
+#import "Shopping.h"
+#include "Item.h"
 
 @interface ShoppingService : NSObject
 @property (nonatomic, strong) NSArray *listTypeItem;
@@ -16,4 +18,5 @@
 - (void)fetchTypeItem;
 - (void)saveTypeItem:(ShoppingModel*)modelTypeItem success:(void(^)(void))success;
 - (void)deleteItem:(ShoppingModel*)modelType success:(void(^)(void))success;
+- (void)addItemToShopping:(ShoppingModel *)shopModel itemID:(NSString*)syncID success:(void(^)(void))success;
 @end

@@ -12,6 +12,7 @@
 #import "CustomCellBackground.h"
 #import "ItemService.h"
 #import "UIAlertView+Blocks.h"
+#import "VCShopping.h"
 
 static NSString *stringIdentify = @"CustomCellItem";
 @interface VCItems ()<UIGestureRecognizerDelegate>
@@ -295,16 +296,10 @@ static NSString *stringIdentify = @"CustomCellItem";
 - (void)actionShoppingWithIndex:(NSInteger)index{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     ModelItem * modelItem = [self.service fetchModelAtIndexPath:indexPath];
-    [UIAlertView showWithTitle:nil message:[NSString stringWithFormat:@"Bạn có muốn thêm %@ vào rỏ hàng", modelItem.modelTypeItem.name] cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
-        NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-        if ([buttonTitle isEqualToString:@"Đồng ý"]) {
-//            [self.service updateItemForSell:modelItem success:^{
-//                [UIAlertView showWithTitle:nil message:@"Thêm thành công" cancelButtonTitle:nil otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView * alertView, NSInteger buttonIndex) {
-//                }];
-//            }];
-        }
-    }];
-
+    VCShopping *vcShopping = [[VCShopping alloc] init];
+    vcShopping.type_from = from_item;
+    vcShopping.syncIDItem = modelItem.syncID;
+    [self.navigationController pushViewController:vcShopping animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

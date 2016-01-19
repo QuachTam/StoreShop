@@ -14,5 +14,5 @@
 @interface ShoppingDetailService : NSObject
 @property (nonatomic, strong) void(^didCompleteFetchData)(NSArray *data);
 - (void)fetchShoppingWithID:(NSString*)syncID;
-
+- (void)removeItemFromShopping:(NSString *)shoppingId itemId:(NSString*)itemId;
 @end

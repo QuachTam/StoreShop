@@ -44,4 +44,15 @@
         success();
     }
 }
+
+- (void)addItemToShopping:(ShoppingModel *)shopModel itemID:(NSString*)syncID success:(void(^)(void))success{
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        Shopping *shoppingEntity = [Shopping entityWithUuid:shopModel.syncID inContext:localContext];
+        Item *itemEntity = [Item entityWithUuid:syncID inContext:localContext];
+        [shoppingEntity addItemsObject:itemEntity];
+    }];
+    if (success) {
+        success();
+    }
+}
 @end
