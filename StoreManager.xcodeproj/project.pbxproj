@@ -90,6 +90,8 @@
 		6464FCCA1C29BBDA0009C040 /* CustomCellPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */; };
 		6464FCCB1C29BBDA0009C040 /* CustomCellPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */; };
 		74DA81987AA5881FB09538C8 /* libPods-StoreManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C26D618B1F8223D192AA04 /* libPods-StoreManager.a */; };
+		FB4509921C50D672003094DE /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4509911C50D672003094DE /* libz.1.1.3.tbd */; };
+		FB4509941C50D698003094DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4509931C50D698003094DE /* UIKit.framework */; };
 		FB67A1B31C290D2F00DF6FAD /* CustomCellDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */; };
 		FB67A1B41C290D2F00DF6FAD /* CustomCellDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */; };
 		FB6E93F21C4DD8C0009DF197 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E93F11C4DD8C0009DF197 /* AdSupport.framework */; };
@@ -274,6 +276,8 @@
 		6464FCC81C29BBDA0009C040 /* CustomCellPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellPickerView.m; sourceTree = "<group>"; };
 		6464FCC91C29BBDA0009C040 /* CustomCellPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellPickerView.xib; sourceTree = "<group>"; };
 		713A5350A73855817536F6E6 /* Pods-StoreManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreManager/Pods-StoreManager.debug.xcconfig"; sourceTree = "<group>"; };
+		FB4509911C50D672003094DE /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		FB4509931C50D698003094DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB67A1B01C290D2F00DF6FAD /* CustomCellDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellDatePicker.h; sourceTree = "<group>"; };
 		FB67A1B11C290D2F00DF6FAD /* CustomCellDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellDatePicker.m; sourceTree = "<group>"; };
 		FB67A1B21C290D2F00DF6FAD /* CustomCellDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellDatePicker.xib; sourceTree = "<group>"; };
@@ -320,13 +324,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6E94021C4DD907009DF197 /* Foundation.framework in Frameworks */,
+				FB4509941C50D698003094DE /* UIKit.framework in Frameworks */,
+				FB4509921C50D672003094DE /* libz.1.1.3.tbd in Frameworks */,
 				FB6E940E1C4DD951009DF197 /* libsqlite3.tbd in Frameworks */,
 				FB6E940C1C4DD943009DF197 /* libz.tbd in Frameworks */,
 				FB6E940A1C4DD939009DF197 /* SystemConfiguration.framework in Frameworks */,
 				FB6E94081C4DD92E009DF197 /* StoreKit.framework in Frameworks */,
 				FB6E94061C4DD928009DF197 /* Security.framework in Frameworks */,
 				FB6E94041C4DD921009DF197 /* QuartzCore.framework in Frameworks */,
-				FB6E94021C4DD907009DF197 /* Foundation.framework in Frameworks */,
 				FB6E94001C4DD8FB009DF197 /* MobileCoreServices.framework in Frameworks */,
 				FB6E93FE1C4DD8EE009DF197 /* CoreLocation.framework in Frameworks */,
 				FB6E93FC1C4DD8E7009DF197 /* CoreGraphics.framework in Frameworks */,
@@ -800,6 +806,8 @@
 		B4741EF2481AD996D4D4898C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB4509931C50D698003094DE /* UIKit.framework */,
+				FB4509911C50D672003094DE /* libz.1.1.3.tbd */,
 				FB6E940D1C4DD951009DF197 /* libsqlite3.tbd */,
 				FB6E940B1C4DD943009DF197 /* libz.tbd */,
 				FB6E94091C4DD939009DF197 /* SystemConfiguration.framework */,
